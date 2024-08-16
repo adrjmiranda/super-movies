@@ -30,11 +30,20 @@
 
 		form {
 			@include flex(row, center, flex-start);
+			position: relative;
+
+			input {
+				border-radius: 0.25rem;
+				padding-right: 2.3rem;
+				font-size: $font-small;
+			}
 
 			button {
 				color: $white-color;
 				@include flex;
 				padding: 0.5rem;
+				position: absolute;
+				right: 0.15rem;
 
 				&:hover {
 					transform: scale(1.1);

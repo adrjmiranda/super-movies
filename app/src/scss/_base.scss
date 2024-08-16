@@ -24,7 +24,7 @@ select {
 	border: none;
 	border-radius: 0;
 	background-color: transparent;
-	font-size: $font-medium;
+	font-size: $font-small;
 }
 
 input,
@@ -36,7 +36,7 @@ select {
 input,
 textarea {
 	border: 1px solid $gray-color;
-	padding: $spacing-unit * 0.25 $spacing-unit * 0.5;
+	padding: $spacing-unit * 0.3 $spacing-unit * 0.5;
 }
 
 input:focus,
@@ -48,7 +48,7 @@ input::placeholder,
 textarea::placeholder {
 	color: $gray-color;
 	font-weight: 400;
-	font-size: $font-medium;
+	font-size: $font-small;
 }
 
 button {

@@ -52,7 +52,7 @@ select {
   border: none;
   border-radius: 0;
   background-color: transparent;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 input,
@@ -64,7 +64,7 @@ select {
 input,
 textarea {
   border: 1px solid #536675;
-  padding: 0.25rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 input:focus,
@@ -76,7 +76,7 @@ input::placeholder,
 textarea::placeholder {
   color: #536675;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 button {

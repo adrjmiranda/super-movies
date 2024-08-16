@@ -52,7 +52,7 @@ select {
   border: none;
   border-radius: 0;
   background-color: transparent;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 input,
@@ -64,7 +64,7 @@ select {
 input,
 textarea {
   border: 1px solid #536675;
-  padding: 0.25rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 input:focus,
@@ -76,7 +76,7 @@ input::placeholder,
 textarea::placeholder {
   color: #536675;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 button {
@@ -139,6 +139,12 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
+}
+.navbar .navbar_menu form input {
+  border-radius: 0.25rem;
+  padding-right: 2.3rem;
+  font-size: 0.875rem;
 }
 .navbar .navbar_menu form button {
   color: #f8faf8;
@@ -147,6 +153,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
+  position: absolute;
+  right: 0.15rem;
 }
 .navbar .navbar_menu form button:hover {
   transform: scale(1.1);
