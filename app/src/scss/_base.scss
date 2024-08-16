@@ -1,14 +1,20 @@
 @import './variables';
+@import './mixins';
+@import './components';
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: $ff-primary;
+	outline: none;
 }
 
 a {
 	text-decoration: none;
+	color: $black-color;
+	font-size: $font-medium;
+	transition: all 0.3s ease-in-out;
 }
 
 input,
@@ -18,4 +24,53 @@ select {
 	border: none;
 	border-radius: 0;
 	background-color: transparent;
+	font-size: $font-medium;
+}
+
+input,
+textarea,
+select {
+	color: $white-color;
+}
+
+input,
+textarea {
+	border: 1px solid $gray-color;
+	padding: $spacing-unit * 0.25 $spacing-unit * 0.5;
+}
+
+input:focus,
+textarea:focus {
+	border-color: $border-color;
+}
+
+input::placeholder,
+textarea::placeholder {
+	color: $gray-color;
+	font-weight: 400;
+	font-size: $font-medium;
+}
+
+button {
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+ul {
+	list-style: none;
+}
+
+body {
+	background-color: $secondary-color;
+}
+
+.center-flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.align-center-flex {
+	display: flex;
+	align-items: center;
 }

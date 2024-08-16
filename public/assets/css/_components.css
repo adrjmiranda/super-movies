@@ -1,0 +1,27 @@
+/*!************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/src/scss/_components.scss ***!
+  \************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap);
+/*!****************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/src/scss/_components.scss (1) ***!
+  \****************************************************************************************************************************/
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f8faf8;
+}
+.logo i.bi {
+  font-size: 1.8rem;
+  margin-bottom: 0.215rem;
+}
+.logo span {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.25rem;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}

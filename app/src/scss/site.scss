@@ -1,0 +1,45 @@
+@import './base';
+
+// Navbar
+
+.navbar {
+	background-color: $primary-color;
+
+	nav {
+		@include flex(row, center, space-between);
+		height: 80px;
+	}
+
+	.navbar_menu {
+		@include flex;
+		gap: $spacing-unit * 2;
+
+		ul {
+			@include flex;
+			gap: $spacing-unit;
+
+			.navbar_link {
+				color: $gray-color;
+				font-weight: 500;
+
+				&:hover {
+					color: $white-color;
+				}
+			}
+		}
+
+		form {
+			@include flex(row, center, flex-start);
+
+			button {
+				color: $white-color;
+				@include flex;
+				padding: 0.5rem;
+
+				&:hover {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}
