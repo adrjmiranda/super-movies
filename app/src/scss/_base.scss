@@ -1,0 +1,21 @@
+@import './variables';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $ff-primary;
+}
+
+a {
+	text-decoration: none;
+}
+
+input,
+button,
+textarea,
+select {
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+}
