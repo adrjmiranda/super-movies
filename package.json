@@ -1,18 +1,26 @@
 {
-  "name": "super-movies",
-  "version": "1.0.0",
-  "description": "Welcome to the Online Movie Rental Platform, a project developed as part of my portfolio to showcase my skills in PHP development. This project is built as a full-stack application, with both front-end and back-end developed using PHP. The back-end will be structured similarly to a PHP framework, providing a clean and organized codebase.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.5.4",
-    "webpack": "^5.93.0",
-    "webpack-cli": "^5.1.4"
-  }
+	"name": "super-movies",
+	"version": "1.0.0",
+	"description": "Welcome to the Online Movie Rental Platform, a project developed as part of my portfolio to showcase my skills in PHP development. This project is built as a full-stack application, with both front-end and back-end developed using PHP. The back-end will be structured similarly to a PHP framework, providing a clean and organized codebase.",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack",
+		"watch": "webpack --watch",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"css-loader": "^7.1.2",
+		"glob": "^11.0.0",
+		"mini-css-extract-plugin": "^2.9.0",
+		"sass": "^1.77.8",
+		"sass-loader": "^16.0.0",
+		"style-loader": "^4.0.0",
+		"ts-loader": "^9.5.1",
+		"typescript": "^5.5.4",
+		"webpack": "^5.93.0",
+		"webpack-cli": "^5.1.4"
+	}
 }
