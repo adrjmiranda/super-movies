@@ -3,6 +3,8 @@
 
 .footer {
 	background-color: $primary-color;
+	box-shadow: $bshadow;
+	margin-top: 2.5rem;
 
 	.footer_row {
 		display: grid;

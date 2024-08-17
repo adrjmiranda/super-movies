@@ -16,6 +16,7 @@
   overflow-x: scroll;
   padding: 1rem 0.5rem;
   border-radius: 0.25rem;
+  box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.1);
 }
 .categories_bar ul::-webkit-scrollbar {
   display: none;

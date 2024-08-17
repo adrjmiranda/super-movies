@@ -11,7 +11,7 @@
   margin-bottom: 1.5rem;
 }
 .featured_movies .featured_movies_slides {
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100%;
 }
 .featured_movies .featured_movies_slides .featured_movies_container {
@@ -28,6 +28,7 @@
   border-radius: 0.25rem;
   position: relative;
   transition: all 0.3s ease-in-out;
+  box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.1);
 }
 .featured_movies .featured_movies_slides .featured_movies_container .featured_movie_slide_card img {
   width: 100%;
@@ -54,6 +55,7 @@
   font-weight: 500;
   transition: all 0.3s ease-in-out;
   text-transform: capitalize;
+  font-size: 0.875rem;
 }
 .featured_movies .featured_movies_slides .featured_movies_container .featured_movie_slide_card:hover img {
   transform: scale(1.05);

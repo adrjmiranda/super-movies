@@ -3,6 +3,7 @@
 
 .navbar {
 	background-color: $primary-color;
+	box-shadow: $bshadow;
 
 	nav {
 		@include flex(row, center, space-between);

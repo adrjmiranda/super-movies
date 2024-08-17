@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
   height: 550px;
-  box-shadow: rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.1);
   padding: 3rem;
 }
 .main_banner .main_banner_info {

@@ -12,7 +12,7 @@
 	}
 
 	.featured_movies_slides {
-		overflow: hidden;
+		overflow-x: hidden;
 		width: 100%;
 
 		.featured_movies_container {
@@ -26,6 +26,7 @@
 				border-radius: 0.25rem;
 				position: relative;
 				transition: all 0.3s ease-in-out;
+				box-shadow: $bshadow;
 
 				img {
 					width: 100%;
@@ -50,6 +51,7 @@
 					font-weight: 500;
 					transition: all 0.3s ease-in-out;
 					text-transform: capitalize;
+					font-size: $fs-small;
 				}
 
 				&:hover {
