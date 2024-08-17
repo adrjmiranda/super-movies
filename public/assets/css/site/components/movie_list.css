@@ -74,6 +74,11 @@
   text-transform: capitalize;
   transition: all 0.3s ease-in-out;
   text-align: center;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  width: 100%;
+  padding: 0 0.5rem;
+  overflow: hidden;
 }
 .movie_list .movie_list_card:hover {
   transform: scale(1.025);

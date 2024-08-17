@@ -50,12 +50,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.25rem;
   color: #536675;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
   text-transform: capitalize;
   font-size: 0.875rem;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  width: 100%;
+  overflow: hidden;
 }
 .featured_movies .featured_movies_slides .featured_movies_container .featured_movie_slide_card:hover img {
   transform: scale(1.05);

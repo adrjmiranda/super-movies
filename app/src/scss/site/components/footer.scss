@@ -116,4 +116,34 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 880px) {
+		.footer_row {
+			grid-template-columns: repeat(1, auto);
+			row-gap: 2.5rem;
+
+			.footer_col {
+				.footer_contact_info {
+					width: 100%;
+
+					.footer_info {
+						width: 100%;
+						@include flex(row, center, flex-start);
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 576px) {
+		.footer_row {
+			.footer_col {
+				.footer_description {
+					p {
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
 }

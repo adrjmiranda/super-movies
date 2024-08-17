@@ -365,12 +365,6 @@ ul {
   background-color: rgba(0, 0, 0, 0.3);
 }
 @media screen and (max-width: 880px) {
-  .main_banner .main_banner_info .movie_description p {
-    max-width: 100vw;
-    text-align: center;
-  }
-}
-@media screen and (max-width: 576px) {
   .main_banner .main_banner_info {
     display: flex;
     flex-direction: column;
@@ -378,11 +372,25 @@ ul {
     justify-content: flex-end;
     height: 100%;
   }
+  .main_banner .main_banner_info .movie_description p {
+    max-width: 100vw;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 576px) {
   .main_banner .main_banner_info .movie_title h2 {
     font-size: 12vw;
   }
   .main_banner .btn_primary {
     width: 100%;
+  }
+}
+@media screen and (max-width: 380px) {
+  .main_banner {
+    padding: 1rem;
+  }
+  .main_banner .main_banner_info .movie_description p {
+    font-size: 0.83125rem;
   }
 }
 
@@ -435,12 +443,16 @@ ul {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.25rem;
   color: #536675;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
   text-transform: capitalize;
   font-size: 0.875rem;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  width: 100%;
+  overflow: hidden;
 }
 .featured_movies .featured_movies_slides .featured_movies_container .featured_movie_slide_card:hover img {
   transform: scale(1.05);
@@ -556,6 +568,11 @@ ul {
   text-transform: capitalize;
   transition: all 0.3s ease-in-out;
   text-align: center;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  width: 100%;
+  padding: 0 0.5rem;
+  overflow: hidden;
 }
 .movie_list .movie_list_card:hover {
   transform: scale(1.025);
@@ -773,4 +790,25 @@ ul {
 .footer .footer_bottom p span {
   font-weight: 400;
   color: #f8faf8;
+}
+@media screen and (max-width: 880px) {
+  .footer .footer_row {
+    grid-template-columns: repeat(1, auto);
+    row-gap: 2.5rem;
+  }
+  .footer .footer_row .footer_col .footer_contact_info {
+    width: 100%;
+  }
+  .footer .footer_row .footer_col .footer_contact_info .footer_info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 576px) {
+  .footer .footer_row .footer_col .footer_description p {
+    text-align: center;
+  }
 }

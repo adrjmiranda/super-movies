@@ -46,12 +46,16 @@
 					background-color: $primary-color;
 					width: 100%;
 					@include flex;
-					padding: 0.5rem 0;
+					padding: 0.5rem 0.25rem;
 					color: $gray-color;
 					font-weight: 500;
 					transition: all 0.3s ease-in-out;
 					text-transform: capitalize;
 					font-size: $fs-small;
+					text-overflow: ellipsis;
+					text-wrap: nowrap;
+					width: 100%;
+					overflow: hidden;
 				}
 
 				&:hover {
