@@ -1,0 +1,94 @@
+@import '../../mixins';
+@import '../../variables';
+
+.auth {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('@img/auth_bg.png');
+	min-height: 100vh;
+	width: 100%;
+
+	.auth_header {
+		.auth_logo {
+			padding: 2rem;
+		}
+	}
+
+	.auth_content {
+		@include flex;
+		min-height: 100vh;
+
+		.auth_form {
+			flex: 1;
+			background-color: rgba(0, 0, 0, 0.8);
+			max-width: 450px;
+			margin: 0 auto;
+			padding: 2rem;
+			border-radius: 0.5rem;
+			@include flex(column, flex-start, center);
+			gap: 1rem;
+
+			.auth_title {
+				color: $highlight-color;
+				font-weight: 500;
+				text-align: center;
+				width: 100%;
+				text-transform: capitalize;
+			}
+
+			.auth_input_field {
+				width: 100%;
+				@include flex(column, flex-start, center);
+				gap: 0.5rem;
+				position: relative;
+
+				label {
+					color: $white-color;
+					font-weight: 500;
+					font-size: $fs-small;
+					text-transform: capitalize;
+				}
+
+				input {
+					width: 100%;
+					border-radius: 0.25rem;
+				}
+
+				.pass_visible_toggle {
+					position: absolute;
+					right: 0.5rem;
+					top: 1.85rem;
+
+					button {
+						color: $white-color;
+					}
+
+					button.pass_visible_toggle_hidden {
+						display: none;
+					}
+				}
+			}
+
+			button {
+				width: 100%;
+			}
+
+			.auth_toggle_text {
+				color: $white-color;
+				font-size: $fs-small * 0.95;
+				text-align: center;
+				width: 100%;
+
+				a {
+					color: $highlight-color;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 780px) {
+		.auth_header {
+			@include flex;
+		}
+	}
+}

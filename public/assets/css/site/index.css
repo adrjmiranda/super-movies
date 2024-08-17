@@ -23,6 +23,11 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
+a i.bi,
+button i.bi {
+  pointer-events: none;
+}
+
 input,
 button,
 textarea,
@@ -85,6 +90,93 @@ ul {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 0.5rem;
+}
+
+.auth {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../img/30ff2c134940345406e8.png);
+  min-height: 100vh;
+  width: 100%;
+}
+.auth .auth_header .auth_logo {
+  padding: 2rem;
+}
+.auth .auth_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.auth .auth_content .auth_form {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+}
+.auth .auth_content .auth_form .auth_title {
+  color: #ff5733;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  text-transform: capitalize;
+}
+.auth .auth_content .auth_form .auth_input_field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+}
+.auth .auth_content .auth_form .auth_input_field label {
+  color: #f8faf8;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+.auth .auth_content .auth_form .auth_input_field input {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+.auth .auth_content .auth_form .auth_input_field .pass_visible_toggle {
+  position: absolute;
+  right: 0.5rem;
+  top: 1.85rem;
+}
+.auth .auth_content .auth_form .auth_input_field .pass_visible_toggle button {
+  color: #f8faf8;
+}
+.auth .auth_content .auth_form .auth_input_field .pass_visible_toggle button.pass_visible_toggle_hidden {
+  display: none;
+}
+.auth .auth_content .auth_form button {
+  width: 100%;
+}
+.auth .auth_content .auth_form .auth_toggle_text {
+  color: #f8faf8;
+  font-size: 0.83125rem;
+  text-align: center;
+  width: 100%;
+}
+.auth .auth_content .auth_form .auth_toggle_text a {
+  color: #ff5733;
+  font-weight: 600;
+}
+@media screen and (max-width: 780px) {
+  .auth .auth_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .logo {
