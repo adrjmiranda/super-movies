@@ -2,14 +2,18 @@
 @import '../../variables';
 
 .btn_primary {
-	background-color: $highlight-color;
-	padding: 0.5rem 1.5rem;
-	border-radius: 0.5rem;
+	@include flex;
+	gap: 0.35rem;
+	padding: 0.35rem 1.25rem 0.4rem;
 	color: $white-color;
-	font-weight: 500;
+	background-color: $highlight-color;
+	border-radius: 0.25rem;
+	font-size: $fs-medium * 0.95;
+	font-weight: 400;
 	text-transform: capitalize;
+	text-align: center;
 
 	&:hover {
-		background-color: $primary-color;
+		background-color: $black-color;
 	}
 }

@@ -2,13 +2,20 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/src/scss/site/components/btn_primary.scss ***!
   \****************************************************************************************************************************************/
 .btn_primary {
-  background-color: #ff5733;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.35rem 1.25rem 0.4rem;
   color: #f8faf8;
-  font-weight: 500;
+  background-color: #ff5733;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 400;
   text-transform: capitalize;
+  text-align: center;
 }
 .btn_primary:hover {
-  background-color: #12121c;
+  background-color: #060309;
 }

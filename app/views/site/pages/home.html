@@ -29,6 +29,10 @@
 			src="../../../../public/assets/js/site/categories_bar_scroll.js"
 			defer
 		></script>
+		<script
+			src="../../../../public/assets/js/site/navbar_toggle_menu.js"
+			defer
+		></script>
 
 		<!-- Google Fonts -->
 
@@ -50,43 +54,47 @@
 		<!-- Navbar -->
 
 		<div class="navbar">
-			<nav class="container">
-				<div class="navbar_logo">
-					<a href="#" class="logo">
-						<i class="bi bi-film"></i>
-						<span>SuperMovies</span>
-					</a>
-				</div>
+			<div class="container">
+				<nav>
+					<div class="navbar_logo">
+						<a href="#" class="logo">
+							<i class="bi bi-film"></i>
+							<span>SuperMovies</span>
+						</a>
+					</div>
 
-				<div class="navbar_menu">
-					<ul>
-						<li>
-							<a href="#" class="navbar_link">Home</a>
-						</li>
+					<div class="navbar_menu">
+						<ul>
+							<li>
+								<a href="#" class="navbar_link">Home</a>
+							</li>
 
-						<li>
-							<a href="#" class="navbar_link">About</a>
-						</li>
+							<li>
+								<a href="#" class="navbar_link">News</a>
+							</li>
 
-						<li>
-							<a href="#" class="navbar_link">News</a>
-						</li>
+							<li>
+								<a href="#" class="navbar_link">Featured</a>
+							</li>
 
-						<li>
-							<a href="#" class="navbar_link">Featured</a>
-						</li>
+							<li>
+								<a href="#" class="btn_primary"
+									><i class="bi bi-person-circle"></i>Login</a
+								>
+							</li>
+						</ul>
 
-						<li>
-							<a href="#" class="navbar_link">Contact</a>
-						</li>
-					</ul>
+						<form action="#">
+							<input type="search" name="search" placeholder="Search" />
+							<button type="submit"><i class="bi bi-search"></i></button>
+						</form>
+					</div>
 
-					<form action="#">
-						<input type="search" name="search" placeholder="Search" />
-						<button type="submit"><i class="bi bi-search"></i></button>
-					</form>
-				</div>
-			</nav>
+					<button class="navbar_toggle_menu" type="button">
+						<i class="bi bi-three-dots-vertical"></i>
+					</button>
+				</nav>
+			</div>
 		</div>
 
 		<!-- Main Banner -->

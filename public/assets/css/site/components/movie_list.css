@@ -73,6 +73,7 @@
   color: #536675;
   text-transform: capitalize;
   transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 .movie_list .movie_list_card:hover {
   transform: scale(1.025);

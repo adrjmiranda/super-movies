@@ -8,46 +8,98 @@
 	nav {
 		@include flex(row, center, space-between);
 		height: 80px;
-	}
+		position: relative;
 
-	.navbar_menu {
-		@include flex;
-		gap: $spacing-unit * 2;
-
-		ul {
+		.navbar_menu {
 			@include flex;
-			gap: $spacing-unit;
+			gap: $spacing-unit * 2;
 
-			.navbar_link {
-				color: $gray-color;
-				font-weight: 500;
+			ul {
+				@include flex;
+				gap: $spacing-unit;
 
-				&:hover {
+				.navbar_link {
+					color: $gray-color;
+					font-weight: 500;
+
+					&:hover {
+						color: $white-color;
+					}
+				}
+			}
+
+			form {
+				@include flex(row, center, flex-start);
+				position: relative;
+
+				input {
+					border-radius: 0.25rem;
+					padding-right: 2.3rem;
+					font-size: $fs-small;
+				}
+
+				button {
 					color: $white-color;
+					@include flex;
+					padding: 0.5rem;
+					position: absolute;
+					right: 0.15rem;
+
+					&:hover {
+						transform: scale(1.1);
+					}
 				}
 			}
 		}
 
-		form {
-			@include flex(row, center, flex-start);
-			position: relative;
+		.navbar_toggle_menu {
+			position: absolute;
+			color: $white-color;
+			top: 1.3rem;
+			right: 1rem;
+			font-size: 2rem;
+			display: none;
+		}
+	}
 
-			input {
-				border-radius: 0.25rem;
-				padding-right: 2.3rem;
-				font-size: $fs-small;
+	@media screen and (max-width: 880px) {
+		nav {
+			@include flex(column, center, center);
+			height: auto;
+			padding: 1rem 0;
+			gap: 2rem;
+
+			.navbar_menu {
+				@include flex(column-reverse, center, center);
+				display: none;
+				width: 100%;
+
+				ul {
+					@include flex(column, center, center);
+					width: 100%;
+
+					li {
+						width: 100%;
+						text-align: center;
+
+						a.btn_primary {
+							margin-top: 1rem;
+							width: 100%;
+						}
+					}
+				}
+
+				form {
+					width: 100%;
+
+					input {
+						width: 100%;
+					}
+				}
 			}
 
-			button {
-				color: $white-color;
-				@include flex;
-				padding: 0.5rem;
-				position: absolute;
-				right: 0.15rem;
-
-				&:hover {
-					transform: scale(1.1);
-				}
+			.navbar_toggle_menu {
+				display: block;
 			}
 		}
 	}
