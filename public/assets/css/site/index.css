@@ -74,6 +74,12 @@ body {
   align-items: center;
 }
 
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -90,13 +96,7 @@ body {
   font-size: 2.25rem;
 }
 
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 0.5rem;
-}
-
-.btn {
+.btn_primary {
   background-color: #ff5733;
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
@@ -104,7 +104,7 @@ body {
   font-weight: 500;
   text-transform: capitalize;
 }
-.btn:hover {
+.btn_primary:hover {
   background-color: #12121c;
 }
 
@@ -163,40 +163,6 @@ body {
 }
 .navbar .navbar_menu form button:hover {
   transform: scale(1.1);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #f8faf8;
-}
-.logo i.bi {
-  font-size: 1.8rem;
-  margin-bottom: 0.215rem;
-  color: #ff5733;
-}
-.logo span {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2.25rem;
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 0.5rem;
-}
-
-.btn {
-  background-color: #ff5733;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  color: #f8faf8;
-  font-weight: 500;
-  text-transform: capitalize;
-}
-.btn:hover {
-  background-color: #12121c;
 }
 
 .main_banner {
@@ -283,40 +249,6 @@ body {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #f8faf8;
-}
-.logo i.bi {
-  font-size: 1.8rem;
-  margin-bottom: 0.215rem;
-  color: #ff5733;
-}
-.logo span {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2.25rem;
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 0.5rem;
-}
-
-.btn {
-  background-color: #ff5733;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  color: #f8faf8;
-  font-weight: 500;
-  text-transform: capitalize;
-}
-.btn:hover {
-  background-color: #12121c;
 }
 
 .footer {
