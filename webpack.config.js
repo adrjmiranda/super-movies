@@ -32,10 +32,20 @@ module.exports = {
 				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
 				exclude: /node_modules/,
 			},
+			{
+				test: /\.(png|jpe?g|gif|svg)$/i,
+				type: 'asset/resource',
+				generator: {
+					filename: 'img/[hash][ext][query]',
+				},
+			},
 		],
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
+		alias: {
+			'@img': path.resolve(__dirname, 'app/src/img'),
+		},
 	},
 	output: {
 		filename: '[name].js',

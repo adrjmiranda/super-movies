@@ -1,0 +1,93 @@
+/*!*********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/src/scss/site/partials/navbar.scss ***!
+  \*********************************************************************************************************************************/
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f8faf8;
+}
+.logo i.bi {
+  font-size: 1.8rem;
+  margin-bottom: 0.215rem;
+  color: #ff5733;
+}
+.logo span {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.25rem;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+.btn {
+  background-color: #ff5733;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  color: #f8faf8;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.btn:hover {
+  background-color: #12121c;
+}
+
+.navbar {
+  background-color: #12121c;
+}
+.navbar nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.navbar .navbar_menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.navbar .navbar_menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.navbar .navbar_menu ul .navbar_link {
+  color: #536675;
+  font-weight: 500;
+}
+.navbar .navbar_menu ul .navbar_link:hover {
+  color: #f8faf8;
+}
+.navbar .navbar_menu form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+.navbar .navbar_menu form input {
+  border-radius: 0.25rem;
+  padding-right: 2.3rem;
+  font-size: 0.875rem;
+}
+.navbar .navbar_menu form button {
+  color: #f8faf8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0.15rem;
+}
+.navbar .navbar_menu form button:hover {
+  transform: scale(1.1);
+}

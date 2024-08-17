@@ -1,0 +1,86 @@
+@import '../../components';
+@import '../../mixins';
+@import '../../variables';
+
+.main_banner {
+	background-image: url('@img/main-banner.jpg');
+	margin: 2.5rem 0;
+	border-radius: 0.5rem;
+	position: relative;
+	overflow: hidden;
+	height: 550px;
+	box-shadow: $shadow-color;
+	padding: 3rem;
+
+	.main_banner_info {
+		@include flex(column, flex-start);
+		gap: 1rem;
+		z-index: 2;
+		position: relative;
+
+		.movie_title {
+			font-family: $ff-logo;
+			color: $white-color;
+			font-size: 2.5rem;
+			text-transform: capitalize;
+		}
+
+		.movie_info {
+			@include flex(row, center, flex-start);
+			gap: 2rem;
+
+			.movie_review {
+				@include flex(row, center, flex-start);
+				gap: 0.5rem;
+				background-color: rgba(0, 0, 0, 0.5);
+				padding: 0.5rem 0.8rem;
+				border-radius: 0.5rem;
+				font-size: $fs-small;
+
+				i.bi {
+					background-color: $highlight-color;
+					border-radius: 50%;
+					@include flex;
+					color: $black-color;
+					width: 20px;
+					height: 20px;
+				}
+
+				span {
+					color: $white-color;
+				}
+			}
+
+			.movie_genres {
+				@include flex;
+				gap: 1rem;
+
+				span {
+					background-color: rgba(0, 0, 0, 0.5);
+					padding: 0.5rem 0.8rem;
+					border-radius: 0.5rem;
+					color: $white-color;
+					font-size: $fs-small;
+					font-weight: 500;
+				}
+			}
+		}
+
+		.movie_description {
+			p {
+				color: $white-color;
+				font-weight: 500;
+				max-width: 50%;
+			}
+		}
+	}
+
+	.film {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+}
