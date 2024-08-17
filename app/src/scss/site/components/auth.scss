@@ -9,7 +9,7 @@
 
 	.auth_header {
 		.auth_logo {
-			padding: 2rem;
+			padding: 2rem 2rem 0 2rem;
 		}
 	}
 
@@ -56,7 +56,7 @@
 				.pass_visible_toggle {
 					position: absolute;
 					right: 0.5rem;
-					top: 1.85rem;
+					top: 2rem;
 
 					button {
 						color: $white-color;
