@@ -3,6 +3,9 @@
 
 .main_banner {
 	background-image: url('@img/main-banner.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	margin: 2.5rem 0;
 	border-radius: 0.5rem;
 	position: relative;
@@ -18,10 +21,12 @@
 		position: relative;
 
 		.movie_title {
-			font-family: $ff-logo;
-			color: $white-color;
-			font-size: 2.5rem;
-			text-transform: capitalize;
+			h2 {
+				font-family: $ff-logo;
+				color: $white-color;
+				font-size: 3.5rem;
+				text-transform: capitalize;
+			}
 		}
 
 		.movie_info {
@@ -52,10 +57,10 @@
 
 			.movie_genres {
 				@include flex;
-				gap: 1rem;
+				gap: 0.5rem;
 
 				span {
-					background-color: rgba(0, 0, 0, 0.5);
+					background-color: rgba(0, 0, 0, 0.8);
 					padding: 0.5rem 0.8rem;
 					border-radius: 0.5rem;
 					color: $white-color;
