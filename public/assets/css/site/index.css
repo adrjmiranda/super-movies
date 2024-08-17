@@ -289,6 +289,7 @@ body {
   object-fit: cover;
   filter: grayscale(0.5);
   transition: all 0.3s ease-in-out;
+  object-position: 0 -16px;
 }
 .featured_movies .featured_movies_slides .featured_movies_container .featured_movie_slide_card span {
   position: absolute;
@@ -305,6 +306,7 @@ body {
   color: #536675;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
+  text-transform: capitalize;
 }
 .featured_movies .featured_movies_slides .featured_movies_container .featured_movie_slide_card:hover img {
   transform: scale(1.05);
@@ -312,6 +314,38 @@ body {
 }
 .featured_movies .featured_movies_slides .featured_movies_container .featured_movie_slide_card:hover span {
   color: #f8faf8;
+}
+
+.categories_bar {
+  margin: 2.5rem 0;
+}
+.categories_bar ul {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #12121c;
+  overflow-x: scroll;
+  padding: 1rem 0.5rem;
+  border-radius: 0.25rem;
+}
+.categories_bar ul::-webkit-scrollbar {
+  display: none;
+}
+.categories_bar ul li a {
+  text-wrap: nowrap;
+  padding: 0.5rem 1rem;
+  color: #536675;
+  text-transform: capitalize;
+}
+.categories_bar ul li a.active, .categories_bar ul li a:hover {
+  color: #f8faf8;
+  font-weight: 500;
+  background-color: #ff5733;
+  border-radius: 0.25rem;
 }
 
 .footer {

@@ -34,6 +34,7 @@
 					object-fit: cover;
 					filter: grayscale(0.5);
 					transition: all 0.3s ease-in-out;
+					object-position: 0 -16px;
 				}
 
 				span {
@@ -48,6 +49,7 @@
 					color: $gray-color;
 					font-weight: 500;
 					transition: all 0.3s ease-in-out;
+					text-transform: capitalize;
 				}
 
 				&:hover {

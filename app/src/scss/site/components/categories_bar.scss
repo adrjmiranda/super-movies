@@ -1,0 +1,38 @@
+@import '../../mixins';
+@import '../../variables';
+
+.categories_bar {
+	margin: 2.5rem 0;
+
+	ul {
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		@include flex(row, center, flex-start);
+		background-color: $primary-color;
+		overflow-x: scroll;
+		padding: 1rem 0.5rem;
+		border-radius: 0.25rem;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		li {
+			a {
+				text-wrap: nowrap;
+				padding: 0.5rem 1rem;
+				color: $gray-color;
+				text-transform: capitalize;
+
+				&.active,
+				&:hover {
+					color: $white-color;
+					font-weight: 500;
+					background-color: $highlight-color;
+					border-radius: 0.25rem;
+				}
+			}
+		}
+	}
+}
