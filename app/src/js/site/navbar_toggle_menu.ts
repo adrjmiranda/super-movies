@@ -4,5 +4,5 @@ const navbarToggleMenu = document.querySelector(
 const navbarMenu = document.querySelector('.navbar_menu') as HTMLDivElement;
 
 navbarToggleMenu.addEventListener('click', () => {
-	navbarMenu.classList.toggle('show');
+	navbarMenu.classList.toggle('flex_show');
 });

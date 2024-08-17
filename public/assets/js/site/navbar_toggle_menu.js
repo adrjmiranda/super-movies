@@ -15,7 +15,7 @@
   \***********************************************/
 /***/ (() => {
 
-eval("var navbarToggleMenu = document.querySelector('.navbar_toggle_menu');\nvar navbarMenu = document.querySelector('.navbar_menu');\nnavbarToggleMenu.addEventListener('click', function () {\n    navbarMenu.classList.toggle('show');\n});\n\n\n//# sourceURL=webpack://super-movies/./app/src/js/site/navbar_toggle_menu.ts?");
+eval("var navbarToggleMenu = document.querySelector('.navbar_toggle_menu');\nvar navbarMenu = document.querySelector('.navbar_menu');\nnavbarToggleMenu.addEventListener('click', function () {\n    navbarMenu.classList.toggle('flex_show');\n});\n\n\n//# sourceURL=webpack://super-movies/./app/src/js/site/navbar_toggle_menu.ts?");
 
 /***/ })
 
