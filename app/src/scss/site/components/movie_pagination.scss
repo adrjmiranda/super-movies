@@ -1,2 +1,62 @@
 @import '../../mixins';
 @import '../../variables';
+
+.movie_pagination {
+	margin: 2.5rem 0;
+	@include flex;
+	gap: 1rem;
+
+	.movie_pagination_prev,
+	.movie_pagination_next {
+		a {
+			background-color: $tertiary-color;
+			@include flex;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+
+			i.bi {
+				color: $primary-color;
+				z-index: 2;
+			}
+
+			&:hover {
+				background-color: $primary-color;
+				transform: scale(1.1);
+
+				i.bi {
+					color: $tertiary-color;
+				}
+			}
+		}
+	}
+
+	.movie_pagination_pages {
+		@include flex;
+		gap: 0.8rem;
+
+		span {
+			@include flex;
+			letter-spacing: 0.25rem;
+			font-weight: bold;
+		}
+
+		a {
+			background-color: $primary-color;
+			@include flex;
+			width: 30px;
+			height: 30px;
+			color: $white-color;
+			border-radius: 50%;
+			font-size: $fs-small * 0.95;
+
+			&:hover,
+			&.active {
+				background-color: $white-color;
+				color: $primary-color;
+				font-weight: bold;
+				transform: scale(1.05);
+			}
+		}
+	}
+}

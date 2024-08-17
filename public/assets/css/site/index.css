@@ -166,11 +166,25 @@ body {
   transform: scale(1.1);
 }
 
+@keyframes img_zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes info_from_below {
+  from {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 .main_banner {
-  background-image: url(../../img/17bea82c897df07d6f68.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   margin: 2.5rem 0;
   border-radius: 0.5rem;
   position: relative;
@@ -178,6 +192,18 @@ body {
   height: 550px;
   box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.1);
   padding: 3rem;
+}
+.main_banner .main_banner_img {
+  animation: img_zoom 16s ease-in-out 0s infinite alternate;
+  background-image: url(../../img/17bea82c897df07d6f68.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .main_banner .main_banner_info {
   display: flex;
@@ -188,6 +214,11 @@ body {
   z-index: 2;
   position: relative;
 }
+.main_banner .main_banner_info .movie_title {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 0.8s 1 forwards;
+}
 .main_banner .main_banner_info .movie_title h2 {
   font-family: "Bebas Neue", sans-serif;
   color: #f8faf8;
@@ -195,6 +226,9 @@ body {
   text-transform: capitalize;
 }
 .main_banner .main_banner_info .movie_info {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 1.2s 1 forwards;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -241,10 +275,20 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
 }
+.main_banner .main_banner_info .movie_description {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 1.6s 1 forwards;
+}
 .main_banner .main_banner_info .movie_description p {
   color: #f8faf8;
   font-weight: 500;
   max-width: 50%;
+}
+.main_banner .main_banner_info .btn_primary {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 2s 1 forwards;
 }
 .main_banner .film {
   position: absolute;
@@ -438,6 +482,73 @@ body {
 .movie_list .movie_list_card:hover .movie_list_card_title span {
   color: #f8faf8;
   font-weight: 500;
+}
+
+.movie_pagination {
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.movie_pagination .movie_pagination_prev a,
+.movie_pagination .movie_pagination_next a {
+  background-color: #223345;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.movie_pagination .movie_pagination_prev a i.bi,
+.movie_pagination .movie_pagination_next a i.bi {
+  color: #12121c;
+  z-index: 2;
+}
+.movie_pagination .movie_pagination_prev a:hover,
+.movie_pagination .movie_pagination_next a:hover {
+  background-color: #12121c;
+  transform: scale(1.1);
+}
+.movie_pagination .movie_pagination_prev a:hover i.bi,
+.movie_pagination .movie_pagination_next a:hover i.bi {
+  color: #223345;
+}
+.movie_pagination .movie_pagination_pages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.movie_pagination .movie_pagination_pages span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.25rem;
+  font-weight: bold;
+}
+.movie_pagination .movie_pagination_pages a {
+  background-color: #12121c;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #f8faf8;
+  border-radius: 50%;
+  font-size: 0.83125rem;
+}
+.movie_pagination .movie_pagination_pages a:hover, .movie_pagination .movie_pagination_pages a.active {
+  background-color: #f8faf8;
+  color: #12121c;
+  font-weight: bold;
+  transform: scale(1.05);
 }
 
 .footer {

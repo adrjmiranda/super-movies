@@ -1,11 +1,25 @@
 /*!****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/src/scss/site/components/main_banner.scss ***!
   \****************************************************************************************************************************************/
+@keyframes img_zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes info_from_below {
+  from {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 .main_banner {
-  background-image: url(../../../img/17bea82c897df07d6f68.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   margin: 2.5rem 0;
   border-radius: 0.5rem;
   position: relative;
@@ -13,6 +27,18 @@
   height: 550px;
   box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.1);
   padding: 3rem;
+}
+.main_banner .main_banner_img {
+  animation: img_zoom 16s ease-in-out 0s infinite alternate;
+  background-image: url(../../../img/17bea82c897df07d6f68.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .main_banner .main_banner_info {
   display: flex;
@@ -23,6 +49,11 @@
   z-index: 2;
   position: relative;
 }
+.main_banner .main_banner_info .movie_title {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 0.8s 1 forwards;
+}
 .main_banner .main_banner_info .movie_title h2 {
   font-family: "Bebas Neue", sans-serif;
   color: #f8faf8;
@@ -30,6 +61,9 @@
   text-transform: capitalize;
 }
 .main_banner .main_banner_info .movie_info {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 1.2s 1 forwards;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,10 +110,20 @@
   font-size: 0.875rem;
   font-weight: 500;
 }
+.main_banner .main_banner_info .movie_description {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 1.6s 1 forwards;
+}
 .main_banner .main_banner_info .movie_description p {
   color: #f8faf8;
   font-weight: 500;
   max-width: 50%;
+}
+.main_banner .main_banner_info .btn_primary {
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: info_from_below 1s ease-in 2s 1 forwards;
 }
 .main_banner .film {
   position: absolute;

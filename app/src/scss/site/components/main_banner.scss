@@ -1,11 +1,29 @@
 @import '../../mixins';
 @import '../../variables';
 
+@keyframes img_zoom {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(1.2);
+	}
+}
+
+@keyframes info_from_below {
+	from {
+		opacity: 0;
+		transform: translate(0, 100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
 .main_banner {
-	background-image: url('@img/main-banner.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
 	margin: 2.5rem 0;
 	border-radius: 0.5rem;
 	position: relative;
@@ -14,6 +32,19 @@
 	box-shadow: $bshadow;
 	padding: 3rem;
 
+	.main_banner_img {
+		animation: img_zoom 16s ease-in-out 0s infinite alternate;
+		background-image: url('@img/main-banner.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
 	.main_banner_info {
 		@include flex(column, flex-start);
 		gap: 1rem;
@@ -21,6 +52,10 @@
 		position: relative;
 
 		.movie_title {
+			opacity: 0;
+			transform: translate(0, 100%);
+			animation: info_from_below 1s ease-in 0.8s 1 forwards;
+
 			h2 {
 				font-family: $ff-logo;
 				color: $white-color;
@@ -30,6 +65,10 @@
 		}
 
 		.movie_info {
+			opacity: 0;
+			transform: translate(0, 100%);
+			animation: info_from_below 1s ease-in 1.2s 1 forwards;
+
 			@include flex(row, center, flex-start);
 			gap: 2rem;
 
@@ -71,11 +110,21 @@
 		}
 
 		.movie_description {
+			opacity: 0;
+			transform: translate(0, 100%);
+			animation: info_from_below 1s ease-in 1.6s 1 forwards;
+
 			p {
 				color: $white-color;
 				font-weight: 500;
 				max-width: 50%;
 			}
+		}
+
+		.btn_primary {
+			opacity: 0;
+			transform: translate(0, 100%);
+			animation: info_from_below 1s ease-in 2s 1 forwards;
 		}
 	}
 
