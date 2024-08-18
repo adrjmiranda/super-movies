@@ -1,0 +1,19 @@
+@import '../../mixins';
+@import '../../variables';
+
+.btn_secondary {
+	@include flex;
+	gap: 0.35rem;
+	padding: 0.35rem 1.25rem 0.4rem;
+	color: $white-color;
+	border-radius: 0.25rem;
+	font-size: $fs-medium * 0.95;
+	background-color: $primary-color;
+	font-weight: 400;
+	text-transform: capitalize;
+	text-align: center;
+
+	&:hover {
+		background-color: $black-color;
+	}
+}

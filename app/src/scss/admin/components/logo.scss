@@ -1,0 +1,20 @@
+@import '../../mixins';
+@import '../../variables';
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: $spacing-unit * 0.5;
+	color: $white-color;
+
+	i.bi {
+		font-size: 1.8rem;
+		margin-bottom: 0.215rem;
+		color: $highlight-color;
+	}
+
+	span {
+		font-family: $ff-logo;
+		font-size: 2.25rem;
+	}
+}

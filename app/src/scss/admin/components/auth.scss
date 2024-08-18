@@ -1,0 +1,41 @@
+@import '../../mixins';
+@import '../../variables';
+
+.auth {
+	.auth_content {
+		min-height: 100vh;
+		@include flex;
+
+		.auth_form {
+			background-color: $black-color;
+			padding: 1.5rem;
+			border-radius: 0.25rem;
+			@include flex(column);
+			gap: 0.8rem;
+			max-width: 450px;
+			flex: 1;
+
+			.auth_input_field {
+				width: 100%;
+				@include flex(column, flex-start);
+				gap: 0.25rem;
+
+				label {
+					color: $gray-color;
+					font-weight: 500;
+					text-transform: capitalize;
+				}
+
+				input {
+					width: 100%;
+					border-radius: 0.25rem;
+				}
+			}
+
+			button {
+				width: 100%;
+				margin-top: -2rem;
+			}
+		}
+	}
+}
