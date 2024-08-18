@@ -67,3 +67,11 @@
   font-weight: bold;
   transform: scale(1.05);
 }
+@media screen and (max-width: 576px) {
+  .movie_pagination {
+    gap: 0.5rem;
+  }
+  .movie_pagination .movie_pagination_pages {
+    gap: 0.7rem;
+  }
+}

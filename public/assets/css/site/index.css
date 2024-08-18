@@ -278,7 +278,7 @@ ul {
 .navbar nav .navbar_toggle_menu {
   position: absolute;
   color: #f8faf8;
-  top: 1.3rem;
+  top: 0.9rem;
   right: 1rem;
   font-size: 2rem;
   display: none;
@@ -773,6 +773,14 @@ ul {
   font-weight: bold;
   transform: scale(1.05);
 }
+@media screen and (max-width: 576px) {
+  .movie_pagination {
+    gap: 0.5rem;
+  }
+  .movie_pagination .movie_pagination_pages {
+    gap: 0.7rem;
+  }
+}
 
 .footer {
   background-color: #12121c;
@@ -900,11 +908,6 @@ ul {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-  }
-}
-@media screen and (max-width: 576px) {
-  .footer .footer_row .footer_col .footer_description p {
-    text-align: center;
   }
 }
 
@@ -1093,4 +1096,85 @@ ul {
   .profile .profile_container .profile_content .profile_form button {
     width: 100%;
   }
+}
+
+.movie_page {
+  margin-top: 2.5rem;
+}
+.movie_page .movie_page_cast {
+  margin-bottom: 2.5rem;
+}
+.movie_page .movie_page_cast .movie_page_cast_title {
+  color: #f8faf8;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.movie_page .movie_page_cast ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+}
+.movie_page .movie_page_cast ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  width: 80px;
+}
+.movie_page .movie_page_cast ul li img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.125);
+}
+.movie_page .movie_page_cast ul li span {
+  color: #536675;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  background-color: #12121c;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.movie_page .movie_page_trailler {
+  margin-bottom: 2.5rem;
+}
+.movie_page .movie_page_trailler .movie_page_trailler_title {
+  color: #f8faf8;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.movie_page .movie_page_trailler iframe {
+  height: 718.976px;
+  width: 100%;
+}
+.movie_page .movie_page_synopsis .movie_page_synopsis_title {
+  color: #f8faf8;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.movie_page .movie_page_synopsis .movie_page_synopsis_body p {
+  text-align: justify;
+  margin-bottom: 1rem;
+  color: #f8faf8;
+  line-height: 1.5;
+}
+.movie_page .movie_page_synopsis .movie_page_synopsis_body p::first-letter {
+  margin-left: 1.5rem;
+}
+.movie_page .movie_page_synopsis .movie_page_synopsis_body p b {
+  color: #ff5733;
 }

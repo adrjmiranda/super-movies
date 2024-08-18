@@ -129,8 +129,3 @@
     justify-content: flex-start;
   }
 }
-@media screen and (max-width: 576px) {
-  .footer .footer_row .footer_col .footer_description p {
-    text-align: center;
-  }
-}
