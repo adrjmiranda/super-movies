@@ -19,30 +19,38 @@
 
 	.profile_container {
 		display: grid;
-		grid-template-columns: 20% 80%;
+		grid-template-columns: 250px auto;
 		grid-template-rows: auto;
 		gap: 1rem;
 
 		.profile_menu {
-			background-color: $black-color;
+			background-image: linear-gradient(rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.7)),
+				url('@img/auth_bg.png');
 			padding: 1.5rem 1rem;
 			border-radius: 0.25rem;
 			box-shadow: $bshadow;
 
 			.profile_user_info {
+				margin-bottom: 1rem;
+
 				.profile_user_img {
 					overflow: hidden;
 					position: relative;
 
 					label {
+						position: relative;
 						cursor: pointer;
+						overflow: hidden;
+						height: 120px;
+						width: 120px;
+						display: block;
+						border-radius: 50%;
+						margin: 0 auto;
 
 						img {
-							height: 120px;
-							width: 120px;
+							width: 100%;
+							height: 100%;
 							object-fit: cover;
-							border-radius: 50%;
-							margin: 0 auto;
 							display: block;
 							margin-bottom: 2.5rem;
 							transition: all 0.3s ease-in-out;
@@ -71,7 +79,7 @@
 
 							span {
 								opacity: 1;
-								bottom: 0;
+								bottom: -2.5rem;
 							}
 						}
 					}
@@ -161,6 +169,42 @@
 							display: none;
 						}
 					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 960px) {
+		.profile_title {
+			text-align: center;
+		}
+
+		.profile_container {
+			display: grid;
+			grid-template-columns: repeat(1, 100%);
+
+			.profile_menu {
+				ul {
+					@include flex(row);
+
+					li {
+						a {
+							&.active,
+							&:hover {
+								transform: scale(1.01);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 430px) {
+		.profile_container {
+			.profile_menu {
+				ul {
+					@include flex(column);
 				}
 			}
 		}

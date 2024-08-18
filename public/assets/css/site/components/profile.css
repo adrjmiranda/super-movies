@@ -17,29 +17,37 @@
 }
 .profile .profile_container {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 250px auto;
   grid-template-rows: auto;
   gap: 1rem;
 }
 .profile .profile_container .profile_menu {
-  background-color: #060309;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.7)), url(../../../img/30ff2c134940345406e8.png);
   padding: 1.5rem 1rem;
   border-radius: 0.25rem;
   box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.125);
+}
+.profile .profile_container .profile_menu .profile_user_info {
+  margin-bottom: 1rem;
 }
 .profile .profile_container .profile_menu .profile_user_info .profile_user_img {
   overflow: hidden;
   position: relative;
 }
 .profile .profile_container .profile_menu .profile_user_info .profile_user_img label {
+  position: relative;
   cursor: pointer;
-}
-.profile .profile_container .profile_menu .profile_user_info .profile_user_img label img {
+  overflow: hidden;
   height: 120px;
   width: 120px;
-  object-fit: cover;
+  display: block;
   border-radius: 50%;
   margin: 0 auto;
+}
+.profile .profile_container .profile_menu .profile_user_info .profile_user_img label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   margin-bottom: 2.5rem;
   transition: all 0.3s ease-in-out;
@@ -67,7 +75,7 @@
 }
 .profile .profile_container .profile_menu .profile_user_info .profile_user_img label:hover span {
   opacity: 1;
-  bottom: 0;
+  bottom: -2.5rem;
 }
 .profile .profile_container .profile_menu ul {
   flex: 1;
@@ -148,4 +156,30 @@
 }
 .profile .profile_container .profile_content .profile_form .profile_input_field .pass_visible_toggle .pass_visible_toggle_hidden {
   display: none;
+}
+@media screen and (max-width: 960px) {
+  .profile .profile_title {
+    text-align: center;
+  }
+  .profile .profile_container {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+  }
+  .profile .profile_container .profile_menu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile .profile_container .profile_menu ul li a.active, .profile .profile_container .profile_menu ul li a:hover {
+    transform: scale(1.01);
+  }
+}
+@media screen and (max-width: 430px) {
+  .profile .profile_container .profile_menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
