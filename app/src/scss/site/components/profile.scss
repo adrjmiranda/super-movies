@@ -8,7 +8,7 @@
 	.profile_title {
 		color: $white-color;
 		font-weight: 500;
-		font-size: 1.8rem;
+		font-size: 2rem;
 		margin-bottom: 1rem;
 
 		span {
@@ -174,9 +174,10 @@
 		}
 	}
 
-	@media screen and (max-width: 960px) {
+	@media screen and (max-width: 880px) {
 		.profile_title {
 			text-align: center;
+			font-size: 1.5rem;
 		}
 
 		.profile_container {
@@ -200,11 +201,19 @@
 		}
 	}
 
-	@media screen and (max-width: 430px) {
+	@media screen and (max-width: 576px) {
 		.profile_container {
 			.profile_menu {
 				ul {
 					@include flex(column);
+				}
+			}
+
+			.profile_content {
+				.profile_form {
+					button {
+						width: 100%;
+					}
 				}
 			}
 		}

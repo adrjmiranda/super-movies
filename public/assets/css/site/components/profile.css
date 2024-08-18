@@ -8,7 +8,7 @@
 .profile .profile_title {
   color: #f8faf8;
   font-weight: 500;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 .profile .profile_title span {
@@ -157,9 +157,10 @@
 .profile .profile_container .profile_content .profile_form .profile_input_field .pass_visible_toggle .pass_visible_toggle_hidden {
   display: none;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 880px) {
   .profile .profile_title {
     text-align: center;
+    font-size: 1.5rem;
   }
   .profile .profile_container {
     display: grid;
@@ -175,11 +176,14 @@
     transform: scale(1.01);
   }
 }
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 576px) {
   .profile .profile_container .profile_menu ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  .profile .profile_container .profile_content .profile_form button {
+    width: 100%;
   }
 }
