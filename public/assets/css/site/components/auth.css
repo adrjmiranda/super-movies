@@ -3,18 +3,18 @@
   \*********************************************************************************************************************************/
 .auth {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../img/30ff2c134940345406e8.png);
-  min-height: 100vh;
+  min-height: calc(100vh - 4.5rem);
   width: 100%;
 }
 .auth .auth_header .auth_logo {
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
 }
 .auth .auth_content {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 4.5rem);
 }
 .auth .auth_content .auth_form {
   flex: 1;
@@ -55,10 +55,13 @@
   width: 100%;
   border-radius: 0.25rem;
 }
+.auth .auth_content .auth_form .auth_input_field input#password, .auth .auth_content .auth_form .auth_input_field input#password_confirmation {
+  padding-right: 1.8rem;
+}
 .auth .auth_content .auth_form .auth_input_field .pass_visible_toggle {
   position: absolute;
   right: 0.5rem;
-  top: 1.85rem;
+  top: 2rem;
 }
 .auth .auth_content .auth_form .auth_input_field .pass_visible_toggle button {
   color: #f8faf8;

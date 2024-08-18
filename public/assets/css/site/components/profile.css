@@ -1,0 +1,151 @@
+/*!************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/src/scss/site/components/profile.scss ***!
+  \************************************************************************************************************************************/
+.profile {
+  margin-top: 2.5rem;
+  min-height: calc(100vh - 400px);
+}
+.profile .profile_title {
+  color: #f8faf8;
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.profile .profile_title span {
+  color: #ff5733;
+  font-weight: bold;
+}
+.profile .profile_container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+.profile .profile_container .profile_menu {
+  background-color: #060309;
+  padding: 1.5rem 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.125);
+}
+.profile .profile_container .profile_menu .profile_user_info .profile_user_img {
+  overflow: hidden;
+  position: relative;
+}
+.profile .profile_container .profile_menu .profile_user_info .profile_user_img label {
+  cursor: pointer;
+}
+.profile .profile_container .profile_menu .profile_user_info .profile_user_img label img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.profile .profile_container .profile_menu .profile_user_info .profile_user_img label span {
+  position: absolute;
+  color: #f8faf8;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 80px;
+  width: 100%;
+  left: 50%;
+  bottom: -5rem;
+  padding-top: 0.5rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+.profile .profile_container .profile_menu .profile_user_info .profile_user_img label:hover img {
+  filter: grayscale(0.5);
+}
+.profile .profile_container .profile_menu .profile_user_info .profile_user_img label:hover span {
+  opacity: 1;
+  bottom: 0;
+}
+.profile .profile_container .profile_menu ul {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+.profile .profile_container .profile_menu ul li {
+  flex: 1;
+  width: 100%;
+}
+.profile .profile_container .profile_menu ul li a {
+  color: #f8faf8;
+  background-color: #1e2a36;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+}
+.profile .profile_container .profile_menu ul li a.active, .profile .profile_container .profile_menu ul li a:hover {
+  background-color: #223345;
+  font-weight: bold;
+  transform: scale(1.025);
+}
+.profile .profile_container .profile_content .profile_form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+.profile .profile_container .profile_content .profile_form .profile_form_title {
+  font-weight: 500;
+  color: #12121c;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+.profile .profile_container .profile_content .profile_form #photo {
+  display: none;
+}
+.profile .profile_container .profile_content .profile_form .profile_input_field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
+  position: relative;
+}
+.profile .profile_container .profile_content .profile_form .profile_input_field label {
+  color: #536675;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.profile .profile_container .profile_content .profile_form .profile_input_field input {
+  border-radius: 0.25rem;
+  width: 100%;
+}
+.profile .profile_container .profile_content .profile_form .profile_input_field input#password, .profile .profile_container .profile_content .profile_form .profile_input_field input#password_confirmation {
+  padding-right: 2.25rem;
+}
+.profile .profile_container .profile_content .profile_form .profile_input_field .pass_visible_toggle {
+  position: absolute;
+  top: 1.9rem;
+  right: 0.8rem;
+}
+.profile .profile_container .profile_content .profile_form .profile_input_field .pass_visible_toggle button {
+  color: #f8faf8;
+}
+.profile .profile_container .profile_content .profile_form .profile_input_field .pass_visible_toggle .pass_visible_toggle_hidden {
+  display: none;
+}
