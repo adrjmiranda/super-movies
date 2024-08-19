@@ -4,7 +4,7 @@ require_once __DIR__ . '/../bootstrap.php';
 
 use App\Core\Template\View;
 
-View::config(SITE_VIEW_PATH);
+View::configBase(SITE_VIEW_PATH, ['base_url' => $_ENV['BASE_URL']]);
 View::view('pages.home', [
   'page_title' => 'TEST',
   'name' => 'Adriano'

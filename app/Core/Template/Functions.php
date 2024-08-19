@@ -8,10 +8,16 @@ trait Functions
   private const TEMP_EXT = '.php';
   private const TEMP_NAME_PATTERN = '/^(?!.*[_.]{2,})(?!^[_.])(?!.*[_.]$)(?=.*\.)[a-z._]{3,}$/';
 
+  private static array $variables;
 
-  public static function escape(string $content): string
+  private static function addTemplateGlobalVariables(array $variables = [])
   {
-    return htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
+    self::$variables = $variables;
+  }
+
+  private static function getAllData(array $data = []): array
+  {
+    return array_merge($data, self::$variables);
   }
 
   private static function checksTemplateName(string $obTemplateName): void
@@ -21,10 +27,15 @@ trait Functions
     }
   }
 
+  public static function escape(string $content): string
+  {
+    return htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
+  }
+
   public static function include(string $partialName, array $includeData = [], bool $multiple = false): void
   {
     self::checksTemplateName($partialName);
-    $includeData['base_url'] = $_ENV['BASE_URL'];
+    $includeData = self::getAllData($includeData);
     extract($includeData);
     self::checksTemplateName($partialName);
 

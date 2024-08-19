@@ -8,28 +8,33 @@ class View
   use Functions;
 
   private static string $templatePath;
-  private static ?string $cachePath;
+  private static string $cachePath;
 
   private static string $parentTemplateName;
   private static array $parentTemplateData;
   private static ?string $parentTemplateContent;
 
-  public static function config(string $templatePath, ?string $cachePath = null): void
+  public static function configCache(string $cachePath = null): void
   {
-    self::$templatePath = "$templatePath";
     self::$cachePath = $cachePath;
-
-    if (!is_dir($templatePath)) {
-      if (!mkdir($templatePath, 0755)) {
-        throw new Exception("Failed To Create Template Directory: $templatePath", 500);
-      }
-    }
 
     if (!is_null($cachePath)) {
       if (!is_dir($cachePath)) {
         if (!mkdir($cachePath, 0755)) {
           throw new Exception("Failed To Create Cache Directory: $cachePath", 500);
         }
+      }
+    }
+  }
+
+  public static function configBase(string $templatePath, array $variables = []): void
+  {
+    self::$templatePath = $templatePath;
+    self::addTemplateGlobalVariables($variables);
+
+    if (!is_dir($templatePath)) {
+      if (!mkdir($templatePath, 0755)) {
+        throw new Exception("Failed To Create Template Directory: $templatePath", 500);
       }
     }
   }
@@ -53,7 +58,7 @@ class View
   private static function render(string $obTemplateName, array $obData = []): ?string
   {
     $view = self::getTemplatePath($obTemplateName);
-    $obData['base_url'] = $_ENV['BASE_URL'];
+    $obData = self::getAllData($obData);
 
     ob_start();
 
