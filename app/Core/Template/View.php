@@ -16,8 +16,6 @@ class View
 
   public static function configCache(string $cachePath = null): void
   {
-    self::$cachePath = $cachePath;
-
     if (!is_null($cachePath)) {
       if (!is_dir($cachePath)) {
         if (!mkdir($cachePath, 0755)) {
@@ -25,18 +23,20 @@ class View
         }
       }
     }
+
+    self::$cachePath = $cachePath;
   }
 
   public static function configBase(string $templatePath, array $variables = []): void
   {
-    self::$templatePath = $templatePath;
-    self::addTemplateGlobalVariables($variables);
-
     if (!is_dir($templatePath)) {
       if (!mkdir($templatePath, 0755)) {
         throw new Exception("Failed To Create Template Directory: $templatePath", 500);
       }
     }
+
+    self::$templatePath = $templatePath;
+    self::addTemplateGlobalVariables($variables);
   }
 
   private static function getTemplatePath(string $obTemplateName): ?string
@@ -86,7 +86,7 @@ class View
     return $content;
   }
 
-  public static function extends(string $parentTemplateName, array $parentTemplateData = [])
+  public static function extends(string $parentTemplateName, array $parentTemplateData = []): void
   {
     self::$parentTemplateName = $parentTemplateName;
     self::$parentTemplateData = $parentTemplateData;
@@ -98,13 +98,12 @@ class View
     self::$parentTemplateContent = null;
   }
 
-  public static function view(string $obTemplateName, array $obData = []): never
+  public static function view(string $obTemplateName, array $obData = []): ?string
   {
     $content = self::render($obTemplateName, $obData);
 
     if (is_string($content)) {
-      echo $content;
-      exit;
+      return $content;
     }
 
     throw new Exception('Unavailable Content', 500);
