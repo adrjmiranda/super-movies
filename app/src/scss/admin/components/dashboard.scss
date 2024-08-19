@@ -51,6 +51,10 @@
 		.dashboard_menu {
 			padding: 2rem;
 
+			.dashboard_close_menu {
+				display: none;
+			}
+
 			ul {
 				@include flex(column);
 				gap: 1rem;
@@ -172,6 +176,52 @@
 
 		.dashboard_inner {
 			padding: 1rem;
+		}
+	}
+
+	@media screen and (max-width: 860px) {
+		.dashboard_content {
+			.dashboard_header {
+				.dashboard_header_logo {
+					display: none;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 630px) {
+		.dashboard_aside {
+			width: 100vw;
+			position: absolute;
+			z-index: 1;
+
+			.dashboard_menu {
+				.dashboard_close_menu {
+					@include flex;
+					position: absolute;
+					color: $white-color;
+					right: 2rem;
+					top: 2rem;
+					z-index: 4;
+					font-size: $fs-large;
+				}
+
+				.dashboard_logout_btn {
+					width: calc(100% - 4rem);
+				}
+			}
+		}
+
+		.dashboard_content {
+			position: absolute;
+			left: 0;
+			top: 0;
+
+			.dashboard_header {
+				.dashboard_header_logo {
+					display: none;
+				}
+			}
 		}
 	}
 }
