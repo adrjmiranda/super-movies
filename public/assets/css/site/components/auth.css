@@ -1,6 +1,16 @@
 /*!*********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/src/scss/site/components/auth.scss ***!
   \*********************************************************************************************************************************/
+@keyframes form_from_below {
+  from {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 .auth {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../img/30ff2c134940345406e8.png);
   min-height: calc(100vh - 4.5rem);
@@ -28,6 +38,9 @@
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: form_from_below 1s ease-in 0.3s 1 forwards;
 }
 .auth .auth_content .auth_form .auth_title {
   color: #ff5733;
