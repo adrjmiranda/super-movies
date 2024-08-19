@@ -3,11 +3,11 @@
 	"name": "adriano/super-movies",
 	"autoload": {
 		"psr-4": {
-			"App\\Controllers\\": "app/controllers/",
-			"App\\Models\\": "app/models/",
-			"App\\Config\\": "app/config/",
-			"App\\Core\\": "app/core/"
-		}
+			"App\\": "app/"
+		},
+		"files": [
+			"app/utils/functions.php"
+		]
 	},
 	"scripts": {
 		"serve": "php -S localhost:8000 -t public"
