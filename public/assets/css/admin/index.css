@@ -127,6 +127,16 @@ ul {
   background-color: #060309;
 }
 
+@keyframes form_from_below {
+  from {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 .auth .auth_content {
   min-height: 100vh;
   display: flex;
@@ -145,6 +155,9 @@ ul {
   gap: 0.8rem;
   max-width: 450px;
   flex: 1;
+  opacity: 0;
+  transform: translate(0, 100%);
+  animation: form_from_below 1s ease-in 0.3s 1 forwards;
 }
 .auth .auth_content .auth_form .auth_input_field {
   width: 100%;
