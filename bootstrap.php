@@ -6,8 +6,8 @@ use Dotenv\Dotenv;
 
 define('ROOT_PATH', __DIR__);
 define('VIEW_PATH', ROOT_PATH . '/app/views');
-define('SITE_VIEW_PATH', VIEW_PATH . '/site/pages');
-define('ADMIN_VIEW_PATH', VIEW_PATH . '/admin/pages');
+define('SITE_VIEW_PATH', VIEW_PATH . '/site');
+define('ADMIN_VIEW_PATH', VIEW_PATH . '/admin');
 
 // Get Environment Variables
 $dotenv = Dotenv::createImmutable(__DIR__);

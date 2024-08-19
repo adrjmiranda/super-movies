@@ -5,14 +5,18 @@ use Exception;
 
 class View
 {
-  private const TEMP_EXT = '.php';
+  use Functions;
 
   private static string $templatePath;
   private static ?string $cachePath;
 
+  private static string $parentTemplateName;
+  private static array $parentTemplateData;
+  private static ?string $parentTemplateContent;
+
   public static function config(string $templatePath, ?string $cachePath = null): void
   {
-    self::$templatePath = $templatePath;
+    self::$templatePath = "$templatePath";
     self::$cachePath = $cachePath;
 
     if (!is_dir($templatePath)) {
@@ -32,6 +36,10 @@ class View
 
   private static function getTemplatePath(string $obTemplateName): ?string
   {
+    self::checksTemplateName($obTemplateName);
+
+    $obTemplateName = str_replace('.', '/', $obTemplateName);
+
     $templateFileName = $obTemplateName . self::TEMP_EXT;
     $viewFile = self::$templatePath . "/$templateFileName";
 
@@ -59,7 +67,30 @@ class View
       throw new Exception('Failed To Capture Template Output', 500);
     }
 
+    if (!empty(self::$parentTemplateName)) {
+      self::$parentTemplateContent = $content;
+      $templateData = array_merge($obData, self::$parentTemplateData);
+      $templateName = self::$parentTemplateName;
+
+      self::$parentTemplateName = '';
+      self::$parentTemplateData = [];
+
+      return self::render($templateName, $templateData);
+    }
+
     return $content;
+  }
+
+  public static function extends(string $parentTemplateName, array $parentTemplateData = [])
+  {
+    self::$parentTemplateName = $parentTemplateName;
+    self::$parentTemplateData = $parentTemplateData;
+  }
+
+  public static function load(): void
+  {
+    echo self::$parentTemplateContent;
+    self::$parentTemplateContent = null;
   }
 
   public static function view(string $obTemplateName, array $obData = []): never
