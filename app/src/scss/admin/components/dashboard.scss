@@ -8,7 +8,9 @@
 		min-height: 100vh;
 		background-color: $primary-color;
 		padding: 2rem 0;
-		position: relative;
+		position: absolute;
+		transform: translate(-100%, 0);
+		transition: all 0.3s ease-in-out;
 
 		.dashboard_profile_info {
 			img {
@@ -95,6 +97,7 @@
 	.dashboard_content {
 		min-height: 100vh;
 		width: 100%;
+		transition: all 0.3s ease-in-out;
 
 		.dashboard_header {
 			@include flex(row, flex-start, flex-start);
@@ -112,6 +115,10 @@
 				font-size: 1.5rem;
 				margin-left: 1rem;
 				margin-bottom: 0.3rem;
+
+				&:hover {
+					transform: scale(1.05);
+				}
 			}
 
 			.dashboard_header_logo {

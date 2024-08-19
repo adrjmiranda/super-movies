@@ -178,7 +178,9 @@ ul {
   min-height: 100vh;
   background-color: #12121c;
   padding: 2rem 0;
-  position: relative;
+  position: absolute;
+  transform: translate(-100%, 0);
+  transition: all 0.3s ease-in-out;
 }
 .dashboard .dashboard_aside .dashboard_profile_info img {
   height: 100px;
@@ -259,6 +261,7 @@ ul {
 .dashboard .dashboard_content {
   min-height: 100vh;
   width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 .dashboard .dashboard_content .dashboard_header {
   display: flex;
@@ -282,6 +285,9 @@ ul {
   font-size: 1.5rem;
   margin-left: 1rem;
   margin-bottom: 0.3rem;
+}
+.dashboard .dashboard_content .dashboard_header .dashboard_toggle_menu:hover {
+  transform: scale(1.05);
 }
 .dashboard .dashboard_content .dashboard_header .dashboard_header_logo {
   margin-left: 1rem;
