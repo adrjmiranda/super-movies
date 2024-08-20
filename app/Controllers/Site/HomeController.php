@@ -12,7 +12,7 @@ class HomeController extends Base
     parent::__construct(SITE_VIEW_PATH);
   }
 
-  public function index(Request $request, Response $response): Response
+  public function index(Request $request, Response $response, array $params): Response
   {
     $view = $this->render('pages.home', [
       'page_title' => 'Home'

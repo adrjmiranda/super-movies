@@ -83,6 +83,8 @@ class Router
     $controllerNamespace = null;
     $action = null;
 
+    $params = [];
+
     if (isset($this->staticRoutes[$method]) && array_key_exists($uri, $this->staticRoutes[$method])) {
       $handler = $this->staticRoutes[$method][$uri];
       $handlerParts = explode(':', $handler);
@@ -107,14 +109,19 @@ class Router
 
         $verifiedSegmentsOfTheUri = 0;
         foreach ($uriSegments as $key => $uriSegment) {
+          $verifiedSegmentsOfTheUri += 1;
+
           if (array_key_exists($pathSegments[$key], $this->paramsPatternList)) {
             if (!preg_match($this->paramsPatternList[$pathSegments[$key]], $uriSegment)) {
+              $params = [];
               $verifiedSegmentsOfTheUri = 0;
+            } else {
+              $params[] = $uriSegment;
             }
           } else if ($pathSegments[$key] !== $uriSegment) {
+            $params = [];
             $verifiedSegmentsOfTheUri = 0;
           }
-          $verifiedSegmentsOfTheUri += 1;
         }
 
         if ($verifiedSegmentsOfTheUri === count($uriSegments)) {
@@ -134,7 +141,7 @@ class Router
     }
 
     $controllerInstance = new $controllerNamespace();
-    $response = $controllerInstance->$action($this->request, $this->response);
+    $response = $controllerInstance->$action($this->request, $this->response, $params);
 
     $response->send();
   }
