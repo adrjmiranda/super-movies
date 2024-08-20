@@ -1,5 +1,7 @@
 <?php
-use App\Core\Template\View;
+/**
+ * @var App\Core\Template\View $this
+ */
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +13,7 @@ use App\Core\Template\View;
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" href="<?= $base_url ?>/favicon.ico" type="image/x-icon" />
 
-	<title>SuperMovies</title>
+	<title><?= $this->escape($page_title) ?></title>
 
 	<!-- Styles -->
 
@@ -37,9 +39,9 @@ use App\Core\Template\View;
 </head>
 
 <body>
-	<?php View::include('partials.navbar'); ?>
-	<?php View::load(); ?>
-	<?php View::include('partials.footer'); ?>
+	<?php $this->include('partials.navbar'); ?>
+	<?php $this->load(); ?>
+	<?php $this->include('partials.footer'); ?>
 </body>
 
 </html>

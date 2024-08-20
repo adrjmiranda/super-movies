@@ -1,11 +1,15 @@
 <?php
-use App\Core\Template\View;
+/**
+ * @var App\Core\Template\View $this
+ */
 
-View:: extends('layouts.master');
+$this->extends('layouts.master', [
+  'page_title' => 'Home'
+]);
 ?>
 
-<?php View::include('partials.main_banner'); ?>
-<?php View::include('partials.featured_films'); ?>
-<?php View::include('partials.categories_bar'); ?>
-<?php View::include('partials.movie_list'); ?>
-<?php View::include('partials.movie_pagination'); ?>
+<?php $this->include('partials.main_banner'); ?>
+<?php $this->include('partials.featured_films'); ?>
+<?php $this->include('partials.categories_bar'); ?>
+<?php $this->include('partials.movie_list'); ?>
+<?php $this->include('partials.movie_pagination'); ?>
