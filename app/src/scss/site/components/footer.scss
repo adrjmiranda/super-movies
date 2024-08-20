@@ -95,6 +95,27 @@
 		}
 	}
 
+	.footer_bottom_links {
+		ul {
+			@include flex(row, center, flex-end);
+			gap: 0.5rem;
+			width: 100%;
+			margin-bottom: 1.5rem;
+
+			li {
+				a {
+					color: $gray-color;
+					font-size: $fs-small;
+					font-weight: bold;
+
+					&:hover {
+						color: $white-color;
+					}
+				}
+			}
+		}
+	}
+
 	.footer_bottom {
 		background-color: $black-color;
 		font-size: $fs-small;

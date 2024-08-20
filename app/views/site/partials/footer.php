@@ -77,6 +77,21 @@
         </div>
       </div>
     </div>
+    <div class="footer_bottom_links">
+      <ul>
+        <li>
+          <a href="/privacy">Privacy</a>
+        </li>
+
+        <li>
+          <a href="/terms">Terms</a>
+        </li>
+
+        <li>
+          <a href="/faq">FAQ</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <div class="footer_bottom">

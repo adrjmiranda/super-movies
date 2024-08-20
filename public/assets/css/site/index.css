@@ -886,6 +886,23 @@ ul {
 .footer .footer_row .footer_col .footer_social_media a:hover {
   transform: scale(1.1);
 }
+.footer .footer_bottom_links ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.footer .footer_bottom_links ul li a {
+  color: #536675;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+.footer .footer_bottom_links ul li a:hover {
+  color: #f8faf8;
+}
 .footer .footer_bottom {
   background-color: #060309;
   font-size: 0.875rem;

@@ -3,6 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
+use App\Core\Http\Router;
 
 define('ROOT_PATH', __DIR__);
 define('VIEW_PATH', ROOT_PATH . '/app/views');
@@ -20,3 +21,5 @@ if ($devMode === 'local') {
   $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
   $whoops->register();
 }
+
+$router = new Router();
