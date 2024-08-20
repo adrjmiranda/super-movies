@@ -19,7 +19,7 @@ class View
     if (!is_null($cachePath)) {
       if (!is_dir($cachePath)) {
         if (!mkdir($cachePath, 0755)) {
-          throw new Exception("Failed To Create Cache Directory: $cachePath", 500);
+          throw new Exception("Failed To Create Cache Directory: {$cachePath}", 500);
         }
       }
     }
@@ -31,7 +31,7 @@ class View
   {
     if (!is_dir($templatePath)) {
       if (!mkdir($templatePath, 0755)) {
-        throw new Exception("Failed To Create Template Directory: $templatePath", 500);
+        throw new Exception("Failed To Create Template Directory: {$templatePath}", 500);
       }
     }
 
@@ -46,10 +46,10 @@ class View
     $obTemplateName = str_replace('.', '/', $obTemplateName);
 
     $templateFileName = $obTemplateName . self::TEMP_EXT;
-    $viewFile = self::$templatePath . "/$templateFileName";
+    $viewFile = self::$templatePath . "/{$templateFileName}";
 
     if (!file_exists($viewFile)) {
-      throw new Exception("Template $templateFileName Does Not Exist", 500);
+      throw new Exception("Template {$templateFileName} Does Not Exist", 500);
     }
 
     return $viewFile;

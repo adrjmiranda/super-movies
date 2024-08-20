@@ -2,10 +2,16 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use App\Core\Template\View;
+use App\Controllers\Site\HomeController;
+use App\Core\Http\Router;
 
-View::configBase(SITE_VIEW_PATH, ['base_url' => $_ENV['BASE_URL']]);
-echo View::view('pages.home', [
-  'page_title' => 'TEST',
-  'name' => 'Adriano'
-]);
+$router = new Router;
+
+$router->get('/', HomeController::class . ':index');
+$router->get('/user/show/{:numeric}', HomeController::class . ':index');
+$router->get('/user/profile/{?numeric}', HomeController::class . ':index');
+$router->get('/user/{:alphabetical}', HomeController::class . ':index');
+// $router->get('/user/{:numeric}/update/{:any}', HomeController::class . ':index');
+$router->get('/user/{:numeric}/update/{:alphabetical}', HomeController::class . ':index');
+$router->get('/user/photo/update/wallpaper', HomeController::class . ':index');
+$router->get('/user/photo/update/wallpaper', HomeController::class . ':index');
