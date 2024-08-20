@@ -7,14 +7,14 @@ class View
 {
   use Functions;
 
-  private static string $templatePath;
-  private static string $cachePath;
+  private string $templatePath;
+  private string $cachePath;
 
-  private static string $parentTemplateName;
-  private static array $parentTemplateData;
-  private static ?string $parentTemplateContent;
+  private string $parentTemplateName;
+  private array $parentTemplateData;
+  private ?string $parentTemplateContent;
 
-  public static function configCache(string $cachePath = null): void
+  public function configCache(string $cachePath = null): void
   {
     if (!is_null($cachePath)) {
       if (!is_dir($cachePath)) {
@@ -24,10 +24,10 @@ class View
       }
     }
 
-    self::$cachePath = $cachePath;
+    $this->cachePath = $cachePath;
   }
 
-  public static function configBase(string $templatePath, array $variables = []): void
+  public function configBase(string $templatePath, array $variables = []): void
   {
     if (!is_dir($templatePath)) {
       if (!mkdir($templatePath, 0755)) {
@@ -35,18 +35,18 @@ class View
       }
     }
 
-    self::$templatePath = $templatePath;
-    self::addTemplateGlobalVariables($variables);
+    $this->templatePath = $templatePath;
+    $this->addTemplateGlobalVariables($variables);
   }
 
-  private static function getTemplatePath(string $obTemplateName): ?string
+  private function getTemplatePath(string $obTemplateName): ?string
   {
-    self::checksTemplateName($obTemplateName);
+    $this->checksTemplateName($obTemplateName);
 
     $obTemplateName = str_replace('.', '/', $obTemplateName);
 
     $templateFileName = $obTemplateName . self::TEMP_EXT;
-    $viewFile = self::$templatePath . "/{$templateFileName}";
+    $viewFile = $this->templatePath . "/{$templateFileName}";
 
     if (!file_exists($viewFile)) {
       throw new Exception("Template {$templateFileName} Does Not Exist", 500);
@@ -55,10 +55,10 @@ class View
     return $viewFile;
   }
 
-  private static function render(string $obTemplateName, array $obData = []): ?string
+  private function render(string $obTemplateName, array $obData = []): ?string
   {
-    $view = self::getTemplatePath($obTemplateName);
-    $obData = self::getAllData($obData);
+    $view = $this->getTemplatePath($obTemplateName);
+    $obData = $this->getAllData($obData);
 
     ob_start();
 
@@ -72,35 +72,35 @@ class View
       throw new Exception('Failed To Capture Template Output', 500);
     }
 
-    if (!empty(self::$parentTemplateName)) {
-      self::$parentTemplateContent = $content;
-      $templateData = array_merge($obData, self::$parentTemplateData);
-      $templateName = self::$parentTemplateName;
+    if (!empty($this->parentTemplateName)) {
+      $this->parentTemplateContent = $content;
+      $templateData = array_merge($obData, $this->parentTemplateData);
+      $templateName = $this->parentTemplateName;
 
-      self::$parentTemplateName = '';
-      self::$parentTemplateData = [];
+      $this->parentTemplateName = '';
+      $this->parentTemplateData = [];
 
-      return self::render($templateName, $templateData);
+      return $this->render($templateName, $templateData);
     }
 
     return $content;
   }
 
-  public static function extends(string $parentTemplateName, array $parentTemplateData = []): void
+  public function extends(string $parentTemplateName, array $parentTemplateData = []): void
   {
-    self::$parentTemplateName = $parentTemplateName;
-    self::$parentTemplateData = $parentTemplateData;
+    $this->parentTemplateName = $parentTemplateName;
+    $this->parentTemplateData = $parentTemplateData;
   }
 
-  public static function load(): void
+  public function load(): void
   {
-    echo self::$parentTemplateContent;
-    self::$parentTemplateContent = null;
+    echo $this->parentTemplateContent;
+    $this->parentTemplateContent = null;
   }
 
-  public static function view(string $obTemplateName, array $obData = []): ?string
+  public function view(string $obTemplateName, array $obData = []): ?string
   {
-    $content = self::render($obTemplateName, $obData);
+    $content = $this->render($obTemplateName, $obData);
 
     if (is_string($content)) {
       return $content;

@@ -44,7 +44,7 @@ class Request
 
   public function getUri(): string
   {
-    return $this->uri;
+    return $this->uri === '/' ? $this->uri : rtrim($this->uri, '/');
   }
 
   public function getMethod(): string
