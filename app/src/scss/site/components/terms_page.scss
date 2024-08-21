@@ -1,0 +1,55 @@
+@import '../../mixins';
+@import '../../variables';
+
+.terms_page {
+	margin-top: 2.5rem;
+
+	h1 {
+		color: $white-color;
+		font-size: $fs-large * 1.35;
+		font-weight: 600;
+		font-family: $ff-logo;
+		margin-bottom: 1.5rem;
+	}
+
+	.terms_content_block {
+		@include flex(column, flex-start);
+		gap: 1rem;
+		margin-bottom: 2rem;
+
+		h2 {
+			color: $gray-color;
+			font-weight: 900;
+			font-size: $fs-large * 1.15;
+		}
+
+		h3 {
+			color: $gray-color;
+			font-weight: 600;
+			font-size: $fs-large * 0.9;
+		}
+
+		p {
+			color: $white-color;
+			line-height: $line-height + 0.3;
+			text-align: justify;
+			font-weight: 300;
+
+			&::first-letter {
+				margin-left: 1.5rem;
+			}
+		}
+
+		ul {
+			@include flex(column, flex-start);
+			gap: 0.8rem;
+			list-style: circle;
+			padding-left: 1.5rem;
+
+			li {
+				font-weight: 400;
+				color: $white-color;
+			}
+		}
+	}
+}
