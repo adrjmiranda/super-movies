@@ -1,12 +1,15 @@
+<?php
+/**
+ * @var App\Core\Template\View $this
+ */
+?>
+
 <footer class="footer">
   <div class="container">
     <div class="footer_row">
       <div class="footer_col">
         <div class="footer_logo">
-          <a href="#" class="logo">
-            <i class="bi bi-film"></i>
-            <span>SuperMovies</span>
-          </a>
+          <?php $this->include('partials.logo', [], true); ?>
         </div>
 
         <div class="footer_description">

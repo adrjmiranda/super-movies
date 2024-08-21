@@ -13,6 +13,14 @@ class HomeController extends Base
     parent::__construct(SITE_VIEW_PATH);
   }
 
+  /**
+   * Handles the request for the home page.
+   * 
+   * @param \App\Core\Http\Request $request The HTTP request instance.
+   * @param \App\Core\Http\Response $response The HTTP response instance.
+   * @param array $params Route parameters.
+   * @return \App\Core\Http\Response The HTTP response with the rendered view.
+   */
   public function index(Request $request, Response $response, array $params): Response
   {
     $view = $this->render('pages.home');

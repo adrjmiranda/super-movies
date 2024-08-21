@@ -1,11 +1,14 @@
+<?php
+/**
+ * @var App\Core\Template\View $this
+ */
+?>
+
 <div class="navbar">
 	<div class="container">
 		<nav>
 			<div class="navbar_logo">
-				<a href="#" class="logo">
-					<i class="bi bi-film"></i>
-					<span>SuperMovies</span>
-				</a>
+				<?php $this->include('partials.logo', [], true); ?>
 			</div>
 
 			<div class="navbar_menu">
