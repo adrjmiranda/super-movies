@@ -1208,3 +1208,41 @@ ul {
 .movie_page .movie_page_synopsis .movie_page_synopsis_body p b {
   color: #ff5733;
 }
+
+.faq_page {
+  margin-top: 2.5rem;
+}
+.faq_page h1 {
+  color: #f8faf8;
+  font-size: 1.6875rem;
+  font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+  margin-bottom: 1.5rem;
+}
+.faq_page .faq_content_block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.faq_page .faq_content_block h2 {
+  color: #536675;
+  font-weight: 900;
+  font-size: 1.4375rem;
+}
+.faq_page .faq_content_block h3 {
+  color: #536675;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.faq_page .faq_content_block p {
+  color: #f8faf8;
+  line-height: 1.8;
+  text-align: justify;
+  font-weight: 300;
+}
+.faq_page .faq_content_block p::first-letter {
+  margin-left: 1.5rem;
+}
