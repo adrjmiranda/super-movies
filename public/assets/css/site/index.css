@@ -1284,6 +1284,13 @@ ul {
 .terms_page .terms_content_block p::first-letter {
   margin-left: 1.5rem;
 }
+.terms_page .terms_content_block p a {
+  color: #ff5733;
+  font-weight: bold;
+}
+.terms_page .terms_content_block p a:hover {
+  color: #060309;
+}
 .terms_page .terms_content_block ul {
   display: flex;
   flex-direction: column;
@@ -1296,4 +1303,68 @@ ul {
 .terms_page .terms_content_block ul li {
   font-weight: 400;
   color: #f8faf8;
+  line-height: 1.8;
+}
+
+.privacy_page {
+  margin-top: 2.5rem;
+}
+.privacy_page h1 {
+  color: #f8faf8;
+  font-size: 1.6875rem;
+  font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+  margin-bottom: 1.5rem;
+}
+.privacy_page .privacy_content_block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.privacy_page .privacy_content_block h2 {
+  color: #536675;
+  font-weight: 900;
+  font-size: 1.4375rem;
+}
+.privacy_page .privacy_content_block h3 {
+  color: #536675;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.privacy_page .privacy_content_block p {
+  color: #f8faf8;
+  line-height: 1.8;
+  text-align: justify;
+  font-weight: 300;
+}
+.privacy_page .privacy_content_block p::first-letter {
+  margin-left: 1.5rem;
+}
+.privacy_page .privacy_content_block p a {
+  color: #ff5733;
+  font-weight: bold;
+}
+.privacy_page .privacy_content_block p a:hover {
+  color: #060309;
+}
+.privacy_page .privacy_content_block ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.8rem;
+  list-style: circle;
+  padding-left: 1.5rem;
+}
+.privacy_page .privacy_content_block ul li {
+  font-weight: 400;
+  color: #f8faf8;
+  line-height: 1.8;
+}
+.privacy_page .privacy_content_block ul li span {
+  color: #ff5733;
+  font-weight: 500;
 }

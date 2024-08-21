@@ -1,7 +1,7 @@
 @import '../../mixins';
 @import '../../variables';
 
-.terms_page {
+.privacy_page {
 	margin-top: 2.5rem;
 
 	h1 {
@@ -12,7 +12,7 @@
 		margin-bottom: 1.5rem;
 	}
 
-	.terms_content_block {
+	.privacy_content_block {
 		@include flex(column, flex-start);
 		gap: 1rem;
 		margin-bottom: 2rem;
@@ -59,6 +59,11 @@
 				font-weight: 400;
 				color: $white-color;
 				line-height: $line-height + 0.3;
+
+				span {
+					color: $highlight-color;
+					font-weight: 500;
+				}
 			}
 		}
 	}

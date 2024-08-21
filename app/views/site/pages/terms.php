@@ -4,7 +4,7 @@
  */
 
 $this->extends('layouts.master', [
-  'page_title' => 'Terms'
+  'page_title' => 'SuperMovies | Terms'
 ]);
 ?>
 
@@ -110,7 +110,8 @@ $this->extends('layouts.master', [
 
     <div class="terms_content_block">
       <h2>Contact Us</h2>
-      <p>If you have any questions or concerns about these Terms, please contact us at support@supermovies.com.</p>
+      <p>If you have any questions or concerns about these Terms, please contact us at <a
+          href="mailto:support@supermovies.com">support@supermovies.com</a>.</p>
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
  */
 
 $this->extends('layouts.master', [
-  'page_title' => 'FAQ'
+  'page_title' => 'SuperMovies | FAQ'
 ]);
 ?>
 

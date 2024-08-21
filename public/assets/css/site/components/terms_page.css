@@ -38,6 +38,13 @@
 .terms_page .terms_content_block p::first-letter {
   margin-left: 1.5rem;
 }
+.terms_page .terms_content_block p a {
+  color: #ff5733;
+  font-weight: bold;
+}
+.terms_page .terms_content_block p a:hover {
+  color: #060309;
+}
 .terms_page .terms_content_block ul {
   display: flex;
   flex-direction: column;
@@ -50,4 +57,5 @@
 .terms_page .terms_content_block ul li {
   font-weight: 400;
   color: #f8faf8;
+  line-height: 1.8;
 }
