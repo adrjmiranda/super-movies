@@ -26,7 +26,7 @@
 					</li>
 
 					<li>
-						<a href="#" class="btn_primary"><i class="bi bi-person-circle"></i>Login</a>
+						<a href="/login" class="btn_primary"><i class="bi bi-person-circle"></i>Login</a>
 					</li>
 				</ul>
 
