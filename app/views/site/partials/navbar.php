@@ -8,13 +8,13 @@
 	<div class="container">
 		<nav>
 			<div class="navbar_logo">
-				<?php $this->include('partials.logo', [], true); ?>
+				<?php $this->includeMany('partials.logo'); ?>
 			</div>
 
 			<div class="navbar_menu">
 				<ul>
 					<li>
-						<a href="/" class="navbar_link">Home</a>
+						<a href="<?= $this->linkTo('home_page') ?>" class="navbar_link">Home</a>
 					</li>
 
 					<li>
@@ -26,7 +26,8 @@
 					</li>
 
 					<li>
-						<a href="/login" class="btn_primary"><i class="bi bi-person-circle"></i>Login</a>
+						<a href="<?= $this->linkTo('user_login_page') ?>" class="btn_primary"><i
+								class="bi bi-person-circle"></i>Login</a>
 					</li>
 				</ul>
 

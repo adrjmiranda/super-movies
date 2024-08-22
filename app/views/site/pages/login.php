@@ -4,12 +4,12 @@
  */
 
 $this->extends('layouts.auth', [
-	'page_title' => 'SuperMovies | Register'
+	'page_title' => 'SuperMovies | Login'
 ]);
 ?>
 
 <div class="auth">
-	<?php $this->include('partials.auth_header'); ?>
+	<?php $this->includeOne('partials.auth_header'); ?>
 
 	<div class="container">
 		<div class="auth_content">
@@ -38,7 +38,7 @@ $this->extends('layouts.auth', [
 				<button type="submit" class="btn_primary">Login</button>
 
 				<p class="auth_toggle_text">
-					Don't have an account yet? <a href="/register">Register</a>
+					Don't have an account yet? <a href="<?= $this->linkTo('user_register_page') ?>">Register</a>
 				</p>
 			</form>
 		</div>

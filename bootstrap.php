@@ -22,4 +22,4 @@ if ($devMode === 'local') {
   $whoops->register();
 }
 
-$router = new Router();
+$router = Router::getInstance();

@@ -9,7 +9,7 @@ $this->extends('layouts.auth', [
 ?>
 
 <div class="auth">
-	<?php $this->include('partials.auth_header'); ?>
+	<?php $this->includeOne('partials.auth_header'); ?>
 
 	<div class="container">
 		<div class="auth_content">
@@ -58,7 +58,7 @@ $this->extends('layouts.auth', [
 				<button type="submit" class="btn_primary">Register</button>
 
 				<p class="auth_toggle_text">
-					Already registered? <a href="/login">Login</a>
+					Already registered? <a href="<?= $this->linkTo('user_login_page') ?>">Login</a>
 				</p>
 			</form>
 		</div>

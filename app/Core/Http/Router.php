@@ -20,11 +20,56 @@ class Router
   private Response $response;
   private array $dynamicRoutes = [];
   private array $staticRoutes = [];
+  private array $namedRoutes = [];
 
-  public function __construct()
+  private static ?Router $instance = null;
+
+  private function __construct()
   {
     $this->request = new Request();
     $this->response = new Response();
+  }
+
+  public static function getInstance(): Router
+  {
+    if (is_null(self::$instance)) {
+      self::$instance = new self();
+    }
+
+    return self::$instance;
+  }
+
+  public function routeNameExists(string $name): bool
+  {
+    return isset($this->namedRoutes[$name]);
+  }
+
+  public function addNamedRoute(string $name, Route $route): void
+  {
+    $this->namedRoutes[$name] = $route;
+  }
+
+  public function getRouteByName(string $name): ?Route
+  {
+    return $this->namedRoutes[$name] ?? null;
+  }
+
+  public function urlFor(string $name, array $params = []): ?string
+  {
+    $route = $this->getRouteByName($name);
+
+    if (is_null($route)) {
+      return null;
+    }
+
+    $path = $route->getPath();
+
+    foreach ($params as $key => $value) {
+      $pattern = "/\{[:?]{$key}\}/";
+      $path = preg_replace($pattern, $value, $path);
+    }
+
+    return $path;
   }
 
   public function __call($method, $args)
@@ -33,13 +78,13 @@ class Router
     $path = $this->validateAndFormatPath($args[0] ?? '');
     $handler = $this->validateHandler($args[1] ?? '');
 
-    $this->add(strtoupper($method), $path, $handler);
+    return $this->add(strtoupper($method), $path, $handler);
   }
 
   private function validateRouteMethod(string $method): void
   {
     if (!in_array(strtoupper($method), $this->enabledMethods)) {
-      throw new Exception("Method {$method} Is Not Enable", 500);
+      throw new Exception("Method '{$method}' Is Not Enable", 500);
     }
   }
 
@@ -63,25 +108,29 @@ class Router
     $action = $handlerItems[1] ?? '';
 
     if (!class_exists($controllerNamespace)) {
-      throw new Exception("Controller {$controllerNamespace} Does Not Exist", 500);
+      throw new Exception("Controller '{$controllerNamespace}' Does Not Exist", 500);
     }
 
     if (!method_exists($controllerNamespace, $action)) {
-      throw new Exception("Method {$action} Does Not Exist In Controller {$controllerNamespace}", 500);
+      throw new Exception("Method '{$action}' Does Not Exist In Controller '{$controllerNamespace}'", 500);
     }
 
     return $handler;
   }
 
-  private function add(string $method, string $path, string $handler): void
+  private function add(string $method, string $path, string $handler): Route
   {
     RouteHelper::checksRouteConflict($method, $path, $this->staticRoutes, $this->dynamicRoutes);
 
+    $route = new Route($method, $path, $handler, $this);
+
     if (RouteHelper::hasADynamicPart($path)) {
-      $this->dynamicRoutes[$method][$path] = $handler;
+      $this->dynamicRoutes[$method][$path] = $route;
     } else {
-      $this->staticRoutes[$method][$path] = $handler;
+      $this->staticRoutes[$method][$path] = $route;
     }
+
+    return $route;
   }
 
   public function run(): void
@@ -103,18 +152,18 @@ class Router
 
   private function resolveRoute(string $method, string $uri): array
   {
-    if ($handler = $this->findStaticRoute($method, $uri)) {
-      return $this->resolveHandler($handler);
+    if ($route = $this->findStaticRoute($method, $uri)) {
+      return $this->resolveHandler($route->getHandler());
     }
 
-    if ($handlerData = $this->findDynamicRoute($method, $uri)) {
-      return $this->resolveHandler($handlerData['handler'], $handlerData['params']);
+    if ($routeData = $this->findDynamicRoute($method, $uri)) {
+      return $this->resolveHandler($routeData['route']->getHandler(), $routeData['params']);
     }
 
     return [null, null, []];
   }
 
-  private function findStaticRoute(string $method, string $uri): ?string
+  private function findStaticRoute(string $method, string $uri): ?Route
   {
     return $this->staticRoutes[$method][$uri] ?? null;
   }
@@ -123,14 +172,14 @@ class Router
   {
     if (isset($this->dynamicRoutes[$method])) {
       $uriSegments = array_values(array_filter(explode('/', $uri)));
-      foreach ($this->dynamicRoutes[$method] as $path => $handler) {
+      foreach ($this->dynamicRoutes[$method] as $path => $route) {
         $pathSegments = array_values(array_filter(explode('/', $path)));
         if (count($pathSegments) < count($uriSegments)) {
           continue;
         }
 
         if ($params = $this->matchDynamicRoute($uriSegments, $pathSegments)) {
-          return ['handler' => $handler, 'params' => $params];
+          return ['route' => $route, 'params' => $params];
         }
       }
     }

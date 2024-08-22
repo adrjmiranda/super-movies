@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Core\Template;
+use App\Core\Http\Router;
 use Exception;
 
 trait Functions
@@ -32,7 +33,16 @@ trait Functions
     return htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
   }
 
-  public function include(string $partialName, array $includeData = [], bool $multiple = false): void
+  public function includeOne(string $partialName, array $includeData = []): void
+  {
+    $this->include($partialName, false, $includeData);
+  }
+  public function includeMany(string $partialName, array $includeData = []): void
+  {
+    $this->include($partialName, true, $includeData);
+  }
+
+  private function include(string $partialName, bool $multiple, array $includeData = []): void
   {
     $this->checksTemplateName($partialName);
     $includeData = $this->getAllData($includeData);
@@ -44,5 +54,12 @@ trait Functions
     } else {
       include_once SITE_VIEW_PATH . '/' . str_replace('.', '/', $partialName) . self::TEMP_EXT;
     }
+  }
+
+  public function linkTo(string $routeName, array $params = []): ?string
+  {
+    $router = Router::getInstance();
+
+    return $router->urlFor($routeName, $params);
   }
 }

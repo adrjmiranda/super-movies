@@ -9,7 +9,7 @@
     <div class="footer_row">
       <div class="footer_col">
         <div class="footer_logo">
-          <?php $this->include('partials.logo', [], true); ?>
+          <?php $this->includeMany('partials.logo'); ?>
         </div>
 
         <div class="footer_description">
@@ -28,11 +28,7 @@
         <div class="footer_links">
           <ul>
             <li>
-              <a href="#" class="navbar_link">Home</a>
-            </li>
-
-            <li>
-              <a href="#" class="navbar_link">About</a>
+              <a href="<?= $this->linkTo('home_page') ?>" class="navbar_link">Home</a>
             </li>
 
             <li>
@@ -41,10 +37,6 @@
 
             <li>
               <a href="#" class="navbar_link">Featured</a>
-            </li>
-
-            <li>
-              <a href="#" class="navbar_link">Contact</a>
             </li>
           </ul>
         </div>
@@ -83,15 +75,15 @@
     <div class="footer_bottom_links">
       <ul>
         <li>
-          <a href="/privacy">Privacy</a>
+          <a href="<?= $this->linkTo('privacy_page') ?>">Privacy</a>
         </li>
 
         <li>
-          <a href="/terms">Terms</a>
+          <a href="<?= $this->linkTo('terms_page') ?>">Terms</a>
         </li>
 
         <li>
-          <a href="/faq">FAQ</a>
+          <a href="<?= $this->linkTo('faq_page') ?>">FAQ</a>
         </li>
       </ul>
     </div>

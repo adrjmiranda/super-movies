@@ -6,6 +6,6 @@
 
 <div class="auth_header">
   <div class="auth_logo">
-    <?php $this->include('partials.logo'); ?>
+    <?php $this->includeOne('partials.logo'); ?>
   </div>
 </div>

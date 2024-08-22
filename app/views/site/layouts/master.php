@@ -39,9 +39,9 @@
 </head>
 
 <body>
-	<?php $this->include('partials.navbar'); ?>
+	<?php $this->includeOne('partials.navbar'); ?>
 	<?php $this->load(); ?>
-	<?php $this->include('partials.footer'); ?>
+	<?php $this->includeOne('partials.footer'); ?>
 </body>
 
 </html>

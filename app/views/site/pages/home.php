@@ -4,12 +4,12 @@
  */
 
 $this->extends('layouts.master', [
-  'page_title' => 'Home'
+  'page_title' => 'SuperMovies | Home'
 ]);
 ?>
 
-<?php $this->include('partials.main_banner'); ?>
-<?php $this->include('partials.featured_films'); ?>
-<?php $this->include('partials.categories_bar'); ?>
-<?php $this->include('partials.movie_list'); ?>
-<?php $this->include('partials.movie_pagination'); ?>
+<?php $this->includeOne('partials.main_banner'); ?>
+<?php $this->includeOne('partials.featured_films'); ?>
+<?php $this->includeOne('partials.categories_bar'); ?>
+<?php $this->includeOne('partials.movie_list'); ?>
+<?php $this->includeOne('partials.movie_pagination'); ?>

@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="<?= $this->escape($base_url) ?>/favicon.ico" type="image/x-icon" />
 
-  <title>SuperMovies</title>
+  <title><?= $this->escape($page_title) ?></title>
 
   <!-- Styles -->
 

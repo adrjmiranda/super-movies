@@ -115,22 +115,22 @@ class RouteHelper
   private static function checksStaticRouteConflict(string $method, string $staticPath, array $staticRotues, array $dynamicRoutes): void
   {
     if (self::staticRouteIsInConflictWithStaticRoute($method, $staticPath, $staticRotues)) {
-      throw new Exception("Static Route {$staticPath} Is In Conflict With Static Route " . self::$conflictingStaticRoute, 500);
+      throw new Exception("Static Route '{$staticPath}' Is In Conflict With Static Route " . self::$conflictingStaticRoute, 500);
     }
 
     if (self::staticRouteIsInConflictWithDynamicRoute($method, $staticPath, $dynamicRoutes)) {
-      throw new Exception("Static Route {$staticPath} Is In Conflict With Dynamic Route " . self::$conflictingDynamicRoute, 500);
+      throw new Exception("Static Route '{$staticPath}' Is In Conflict With Dynamic Route " . self::$conflictingDynamicRoute, 500);
     }
   }
 
   private static function checksDynamicRouteConflict(string $method, string $dynamicPath, array $staticRotues, array $dynamicRoutes): void
   {
     if (self::dynamicRouteIsInConflictWithStaticRoute($method, $dynamicPath, $staticRotues)) {
-      throw new Exception("Dynamic Route {$dynamicPath} Is In Conflict With Static Route " . self::$conflictingStaticRoute, 500);
+      throw new Exception("Dynamic Route '{$dynamicPath}' Is In Conflict With Static Route " . self::$conflictingStaticRoute, 500);
     }
 
     if (self::dynamicRouteIsInConflictWithDynamicRoute($method, $dynamicPath, $dynamicRoutes)) {
-      throw new Exception("Dynamic Route {$dynamicPath} Is In Conflict With Dynamic Route " . self::$conflictingDynamicRoute, 500);
+      throw new Exception("Dynamic Route '{$dynamicPath}' Is In Conflict With Dynamic Route " . self::$conflictingDynamicRoute, 500);
     }
   }
 
