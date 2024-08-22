@@ -24,6 +24,9 @@ class Router
 
   private static ?Router $instance = null;
 
+  private string $groupPrefix = '';
+  private array $groupMiddlewares = [];
+
   private function __construct()
   {
     $this->request = new Request();
@@ -49,7 +52,7 @@ class Router
     $this->namedRoutes[$name] = $route;
   }
 
-  public function getRouteByName(string $name): ?Route
+  private function getRouteByName(string $name): ?Route
   {
     return $this->namedRoutes[$name] ?? null;
   }
@@ -72,7 +75,7 @@ class Router
     return $path;
   }
 
-  public function __call($method, $args)
+  public function __call(string $method, array $args): Route
   {
     $this->validateRouteMethod($method);
     $path = $this->validateAndFormatPath($args[0] ?? '');
@@ -118,11 +121,28 @@ class Router
     return $handler;
   }
 
+  public function group(string $prefix, array $middlewares = [], callable $callback): void
+  {
+    $previousGroupPrefix = $this->groupPrefix;
+    $previousGroupMiddlewares = $this->groupMiddlewares;
+
+    $this->groupPrefix = $previousGroupPrefix . rtrim($prefix, '/');
+    $this->groupMiddlewares = array_merge($previousGroupMiddlewares, $middlewares);
+
+    $callback($this);
+
+    $this->groupPrefix = $previousGroupPrefix;
+    $this->groupMiddlewares = $previousGroupMiddlewares;
+  }
+
   private function add(string $method, string $path, string $handler): Route
   {
+    $path = $this->groupPrefix . $path;
+
     RouteHelper::checksRouteConflict($method, $path, $this->staticRoutes, $this->dynamicRoutes);
 
     $route = new Route($method, $path, $handler, $this);
+    $route->setMiddlewares($this->groupMiddlewares);
 
     if (RouteHelper::hasADynamicPart($path)) {
       $this->dynamicRoutes[$method][$path] = $route;
@@ -138,10 +158,14 @@ class Router
     $uri = $this->request->getUri();
     $method = $this->request->getMethod();
 
-    [$controllerNamespace, $action, $params] = $this->resolveRoute($method, $uri);
+    [$controllerNamespace, $action, $params, $middlewares] = $this->resolveRoute($method, $uri);
 
     if (is_null($controllerNamespace) || is_null($action)) {
       throw new Exception("Page Not Found", 404);
+    }
+
+    foreach ($middlewares as $middleware) {
+      $middleware($this->request, $this->response);
     }
 
     $controllerInstance = new $controllerNamespace();
@@ -153,14 +177,14 @@ class Router
   private function resolveRoute(string $method, string $uri): array
   {
     if ($route = $this->findStaticRoute($method, $uri)) {
-      return $this->resolveHandler($route->getHandler());
+      return array_merge($this->resolveHandler($route->getHandler()), [$route->getMiddlewares()]);
     }
 
     if ($routeData = $this->findDynamicRoute($method, $uri)) {
-      return $this->resolveHandler($routeData['route']->getHandler(), $routeData['params']);
+      return array_merge($this->resolveHandler($routeData['route']->getHandler(), $routeData['params']), [$routeData['route']->getMiddlewares()]);
     }
 
-    return [null, null, []];
+    return [null, null, [], []];
   }
 
   private function findStaticRoute(string $method, string $uri): ?Route

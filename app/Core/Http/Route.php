@@ -10,6 +10,7 @@ class Route
   private string $handler;
   private ?string $name = null;
   private Router $router;
+  private array $middlewares = [];
 
   public function __construct(string $method, string $path, string $handler, Router $router)
   {
@@ -17,6 +18,16 @@ class Route
     $this->path = $path;
     $this->handler = $handler;
     $this->router = $router;
+  }
+
+  public function setMiddlewares(array $middlewares): void
+  {
+    $this->middlewares = $middlewares;
+  }
+
+  public function getMiddlewares(): array
+  {
+    return $this->middlewares;
   }
 
   public function as(string $name): self
