@@ -2,6 +2,7 @@
 
 namespace App\Core\Http;
 
+use App\Core\Middleware\Queue;
 use Exception;
 
 class Router
@@ -164,9 +165,8 @@ class Router
       throw new Exception("Page Not Found", 404);
     }
 
-    foreach ($middlewares as $middleware) {
-      $middleware($this->request, $this->response);
-    }
+    $queue = new Queue($middlewares, $this->request, $this->response);
+    $queue->run();
 
     $controllerInstance = new $controllerNamespace();
     $response = $controllerInstance->$action($this->request, $this->response, $params);
