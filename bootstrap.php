@@ -1,9 +1,8 @@
 <?php
 
-session_start();
-
 require_once __DIR__ . '/vendor/autoload.php';
 
+use App\Config\Session;
 use Dotenv\Dotenv;
 use App\Core\Http\Router;
 
@@ -15,6 +14,9 @@ define('ADMIN_VIEW_PATH', VIEW_PATH . '/admin');
 // Get Environment Variables
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+
+// Start Session
+Session::start();
 
 // Get DEV MODE
 $devMode = $_ENV['APP_ENV'];
