@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Site\Web;
 
+use App\Config\Session;
 use App\Core\Controller\Base;
 use App\Core\Http\Request;
 use App\Core\Http\Response;
@@ -15,7 +16,10 @@ class LoginController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
-    $view = $this->render('pages.login');
+    $csrfToken = Session::get('csrf_token');
+    $view = $this->render('pages.login', [
+      'csrf_token' => $csrfToken
+    ]);
     $response->setBody($view);
 
     return $response;

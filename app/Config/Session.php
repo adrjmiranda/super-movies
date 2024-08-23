@@ -4,15 +4,21 @@ namespace App\Config;
 
 class Session
 {
+  private const COOKIE_LIFETIME = 864000;
+
   public static function start(): void
   {
     if (session_status() !== PHP_SESSION_ACTIVE) {
       session_start([
-        'cookie_lifetime' => $_ENV['APP_ENV'] === 'local' ? 0 : 86400,
+        'cookie_lifetime' => $_ENV['APP_ENV'] === 'local' ? 0 : self::COOKIE_LIFETIME,
         'cookie_secure' => $_ENV['APP_ENV'] === 'local' ? false : true,
         'cookie_httponly' => true,
         'use_strict_mode' => true,
       ]);
+    }
+
+    if (session_status() === PHP_SESSION_ACTIVE) {
+      session_regenerate_id(true);
     }
   }
 
@@ -44,7 +50,7 @@ class Session
       setcookie(
         session_name(),
         '',
-        time() - 42000,
+        time() - self::COOKIE_LIFETIME,
         $params["path"],
         $params["domain"],
         $params["secure"],

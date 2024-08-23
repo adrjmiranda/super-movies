@@ -16,6 +16,8 @@ $this->extends('layouts.auth', [
 			<form action="#" class="auth_form">
 				<h1 class="auth_title">Login now</h1>
 
+				<input type="hidden" name="csrf_token" value="<?= $this->escape($csrf_token) ?>">
+
 				<div class="auth_input_field">
 					<label for="email">E-mail</label>
 					<input type="email" id="email" name="email" placeholder="Your email" />
