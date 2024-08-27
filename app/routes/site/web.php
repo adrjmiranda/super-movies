@@ -2,12 +2,15 @@
 
 use App\Core\Http\Router;
 
+// Controllers
 use App\Controllers\Site\Web\FaqController;
 use App\Controllers\Site\Web\HomeController;
 use App\Controllers\Site\Web\LoginController;
 use App\Controllers\Site\Web\PrivacyController;
 use App\Controllers\Site\Web\RegisterController;
 use App\Controllers\Site\Web\TermsController;
+
+// Middlewares
 use App\Middlewares\Site\Web\GeneratesCSRFTokenMiddleware;
 
 $router->group('/', [], function (Router $router) {
