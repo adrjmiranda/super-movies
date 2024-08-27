@@ -45,6 +45,15 @@
 					width: 100%;
 					border-radius: 0.25rem;
 				}
+
+				.auth_form_error {
+					color: $error-color;
+					font-weight: 300;
+					font-size: 0.9rem;
+					text-align: center;
+					width: 100%;
+					margin-top: 0.2rem;
+				}
 			}
 
 			button {

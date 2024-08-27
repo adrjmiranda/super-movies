@@ -50,6 +50,14 @@
   width: 100%;
   border-radius: 0.25rem;
 }
+.auth .auth_content .auth_form .auth_input_field .auth_form_error {
+  color: #dc3545;
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.2rem;
+}
 .auth .auth_content .auth_form button {
   width: 100%;
   margin-top: -2rem;

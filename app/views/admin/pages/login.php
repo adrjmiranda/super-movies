@@ -23,12 +23,18 @@ $this->extends('layouts.auth', [
 
 				<div class="auth_input_field">
 					<label for="email">E-mail</label>
-					<input type="email" name="email" placeholder="email@example.com" />
+					<input type="email" name="email" placeholder="email@example.com"
+						value="<?= $this->escape($post_params['email'] ?? '') ?>" />
+
+					<p class="auth_form_error"><?= $this->getErrorMessage('email') ?></p>
 				</div>
 
 				<div class="auth_input_field">
 					<label for="password">Password</label>
-					<input type="password" name="password" id="password" placeholder="password" />
+					<input type="password" name="password" id="password" placeholder="password"
+						value="<?= $this->escape($post_params['password'] ?? '') ?>" />
+
+					<p class="auth_form_error"><?= $this->getErrorMessage('password') ?></p>
 
 					<div class="pass_visible_toggle pass">
 						<button type="button" class="pass_visible_toggle_show">

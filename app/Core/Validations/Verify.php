@@ -85,7 +85,7 @@ class Verify
   {
     $fieldName = $params[0] ?? '';
     if (!isset($fieldValue) || empty($fieldValue)) {
-      return [$fieldName => "The '$fieldName' field is mandatory"];
+      return [$fieldName => "The $fieldName field is mandatory"];
     }
 
     return false;

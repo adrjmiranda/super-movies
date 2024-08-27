@@ -67,6 +67,11 @@ class Request
     return $this->queryParams;
   }
 
+  public function getPostParam(string $key): string
+  {
+    return $this->getPostParams()[$key] ?? '';
+  }
+
   public function getPostParams(): array
   {
     return $this->postParams;

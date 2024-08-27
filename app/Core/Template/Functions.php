@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Core\Template;
+
 use App\Core\Http\Router;
+use App\Config\Flash;
+use App\Config\FlashType;
 use Exception;
 
 trait Functions
@@ -10,6 +13,7 @@ trait Functions
   private const TEMP_NAME_PATTERN = '/^(?!.*[_.]{2,})(?!^[_.])(?!.*[_.]$)(?=.*\.)[a-z._]{3,}$/';
 
   private array $variables;
+  private ?array $errorMessages = [];
 
   public function addTemplateGlobalVariables(array $variables = [])
   {
@@ -61,5 +65,13 @@ trait Functions
     $router = Router::getInstance();
 
     return $router->urlFor($routeName, $params);
+  }
+
+  public function getErrorMessage(string $key): ?string
+  {
+    $messages = Flash::get(FlashType::Error);
+    $this->errorMessages = !is_null($messages) ? $messages : $this->errorMessages;
+
+    return $this->errorMessages[$key] ?? null;
   }
 }

@@ -2,11 +2,14 @@
 
 namespace App\Controllers\Admin\Web;
 
+use App\Config\Flash;
+use App\Config\FlashType;
 use App\Config\Session;
 use App\Core\Controller\Base;
 use App\Core\Http\Request;
 use App\Core\Http\Response;
 use App\Core\Validations\Verify;
+use App\Repositories\AdminRepository;
 
 class LoginController extends Base
 {
@@ -17,24 +20,48 @@ class LoginController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
+    $email = $request->getPostParam('email');
+    $password = $request->getPostParam('password');
+
+    $postParams = [
+      'email' => $email,
+      'password' => $password
+    ];
+
     $csrfToken = Session::get('csrf_token');
     $view = $this->render('pages.login', [
-      'csrf_token' => $csrfToken
+      'csrf_token' => $csrfToken,
+      'post_params' => $postParams
     ]);
     $response->setBody($view);
 
     return $response;
   }
 
-  public function store(Request $request, Response $response, array $params): Response
+  public function store(Request $request, Response $response, array $params): ?Response
   {
-    $email = $request->getPostParams()['email'] ?? '';
-    $password = $request->getPostParams()['password'] ?? '';
+    $email = $request->getPostParam('email');
+    $password = $request->getPostParam('password');
 
     $errors = Verify::getErrors([
       'userexists@admin' => $email,
-      'ovo@password' => $password
+      'required@password' => $password
     ]);
+
+    if (!empty($errors)) {
+      Flash::set($errors, FlashType::Error);
+      return $this->index($request, $response, $params);
+    }
+
+    $admin = (new AdminRepository)->findOne('email', $email);
+    if (!password_verify($password, $admin->password_hash)) {
+      Flash::set([
+        'password' => 'Incorrect password'
+      ], FlashType::Error);
+      return $this->index($request, $response, $params);
+    }
+
+    // TODO: store in session and redirect to dashboard
 
     return $response;
   }
