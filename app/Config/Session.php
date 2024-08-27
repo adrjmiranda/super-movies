@@ -9,9 +9,11 @@ class Session
   public static function start(): void
   {
     if (session_status() !== PHP_SESSION_ACTIVE) {
+      $isDev = isDev();
+
       session_start([
-        'cookie_lifetime' => $_ENV['APP_ENV'] === 'local' ? 0 : self::COOKIE_LIFETIME,
-        'cookie_secure' => $_ENV['APP_ENV'] === 'local' ? false : true,
+        'cookie_lifetime' => $isDev ? 0 : self::COOKIE_LIFETIME,
+        'cookie_secure' => $isDev ? false : true,
         'cookie_httponly' => true,
         'use_strict_mode' => true,
       ]);

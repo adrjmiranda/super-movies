@@ -4,7 +4,10 @@
 	"autoload": {
 		"psr-4": {
 			"App\\": "app/"
-		}
+		},
+		"files": [
+			"app/utils/functions.php"
+		]
 	},
 	"scripts": {
 		"serve": "php -S localhost:8000 -t public"

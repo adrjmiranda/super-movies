@@ -6,7 +6,7 @@ use App\Config\Session;
 use App\Core\Http\Request;
 use App\Core\Http\Response;
 
-class GeneratesCSRFToken
+class GeneratesCSRFTokenMiddleware
 {
   public function __invoke(Request $request, Response $response, callable $next)
   {
