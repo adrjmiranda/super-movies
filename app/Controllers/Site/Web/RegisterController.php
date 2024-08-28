@@ -8,8 +8,9 @@ use App\Config\Session;
 use App\Core\Controller\Base;
 use App\Core\Http\Request;
 use App\Core\Http\Response;
+use App\Core\Http\Router;
 use App\Core\Validations\Verify;
-use App\Repositories\AdminRepository;
+use App\Repositories\UserRepository;
 
 class RegisterController extends Base
 {
@@ -20,9 +21,22 @@ class RegisterController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
+    $email = $request->getPostParam('email');
+    $name = $request->getPostParam('name');
+    $password = $request->getPostParam('password');
+    $passwordConfirmation = $request->getPostParam('password_confirmation');
+
+    $postParams = [
+      'name' => $name,
+      'email' => $email,
+      'password' => $password,
+      'password_confirmation' => $passwordConfirmation
+    ];
+
     $csrfToken = Session::get('csrf_token_user');
     $view = $this->render('pages.register', [
-      'csrf_token_user' => $csrfToken
+      'csrf_token_user' => $csrfToken,
+      'post_params' => $postParams
     ]);
     $response->setBody($view);
 
@@ -48,9 +62,34 @@ class RegisterController extends Base
       return $this->index($request, $response, $params);
     }
 
-    $adminRepository = new AdminRepository;
-    // TODO: continue register (store)
+    $name = preg_replace('/\s+/', ' ', trim($name));
+    $email = trim($email);
 
-    return $response;
+    $userRepository = new UserRepository;
+    $userData = [
+      'name' => $name,
+      'email' => $email,
+      'password' => password_hash($password, PASSWORD_DEFAULT),
+    ];
+    if ($userRepository->store($userData)) {
+      $registeredUser = $userRepository->findOne('email', $email);
+      if ($registeredUser !== false) {
+        $id = $registeredUser->id;
+
+        Session::set('user', [
+          'id' => $id,
+          'name' => $name,
+          'email' => $email
+        ]);
+        Router::redirect('/');
+      } else {
+        Router::redirect('/login');
+      }
+    } else {
+      Flash::set([
+        'register' => 'Error when trying to register'
+      ], FlashType::Error);
+      return $this->index($request, $response, $params);
+    }
   }
 }

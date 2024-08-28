@@ -17,12 +17,14 @@ $this->extends('layouts.auth', [
 				<h1 class="auth_title">Register now</h1>
 
 				<p class="auth_form_error"><?= $this->getErrorMessage('csrf') ?></p>
+				<p class="auth_form_error"><?= $this->getErrorMessage('register') ?></p>
 
 				<input type="hidden" name="csrf_token_user" value="<?= $this->escape($csrf_token_user) ?>">
 
 				<div class="auth_input_field">
 					<label for="name">Name</label>
-					<input type="text" id="name" name="name" placeholder="Your name" />
+					<input type="text" id="name" name="name" placeholder="Your name"
+						value="<?= $this->escape($post_params['name'] ?? '') ?>" />
 
 					<p class="auth_form_error"><?= $this->getErrorMessage('name') ?></p>
 
@@ -30,7 +32,8 @@ $this->extends('layouts.auth', [
 
 				<div class="auth_input_field">
 					<label for="email">E-mail</label>
-					<input type="email" id="email" name="email" placeholder="Your email" />
+					<input type="email" id="email" name="email" placeholder="Your email"
+						value="<?= $this->escape($post_params['email'] ?? '') ?>" />
 
 					<p class="auth_form_error"><?= $this->getErrorMessage('email') ?></p>
 
@@ -38,7 +41,8 @@ $this->extends('layouts.auth', [
 
 				<div class="auth_input_field">
 					<label for="password">Password</label>
-					<input type="password" id="password" name="password" placeholder="Your password" />
+					<input type="password" id="password" name="password" placeholder="Your password"
+						value="<?= $this->escape($post_params['password'] ?? '') ?>" />
 
 					<p class="auth_form_error"><?= $this->getErrorMessage('password') ?></p>
 
@@ -55,7 +59,8 @@ $this->extends('layouts.auth', [
 				<div class="auth_input_field">
 					<label for="password_confirmation">Password confirmation</label>
 					<input type="password" id="password_confirmation" name="password_confirmation"
-						placeholder="Your password again" />
+						placeholder="Your password again"
+						value="<?= $this->escape($post_params['password_confirmation'] ?? '') ?>" />
 
 					<p class="auth_form_error"><?= $this->getErrorMessage('password_confirmation') ?></p>
 
