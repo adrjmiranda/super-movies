@@ -19,8 +19,13 @@ $router->group('/', [], function (Router $router) {
   $router->get('/terms', TermsController::class . ':index')->as('terms_page');
   $router->get('/faq', FaqController::class . ':index')->as('faq_page');
 
-  $router->group('/', [GeneratesCSRFTokenMiddleware::class], function (Router $router) {
-    $router->get('/login', LoginController::class . ':index')->as('user_login_page');
-    $router->get('/register', RegisterController::class . ':index')->as('user_register_page');
+  $router->group('/', [], function (Router $router) {
+    $router->post('/login', LoginController::class . ':store');
+    $router->post('/register', RegisterController::class . ':store');
+
+    $router->group('/', [GeneratesCSRFTokenMiddleware::class], function (Router $router) {
+      $router->get('/login', LoginController::class . ':index')->as('user_login_page');
+      $router->get('/register', RegisterController::class . ':index')->as('user_register_page');
+    });
   });
 });

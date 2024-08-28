@@ -24,4 +24,17 @@ class RegisterController extends Base
 
     return $response;
   }
+
+  public function store(Request $request, Response $response, array $params): ?Response
+  {
+    $name = $request->getPostParam('name');
+    $email = $request->getPostParam('email');
+    $password = $request->getPostParam('password');
+    $passwordConfirmation = $request->getPostParam('password_confirmation');
+
+    dump($request->getPostParams());
+    die();
+
+    return $response;
+  }
 }

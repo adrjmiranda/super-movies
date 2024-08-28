@@ -24,4 +24,11 @@ class LoginController extends Base
 
     return $response;
   }
+
+  public function store(Request $request, Response $response, array $params): ?Response
+  {
+    // TODO: login
+
+    return $response;
+  }
 }
