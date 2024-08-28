@@ -53,7 +53,7 @@ class RegisterController extends Base
     $errors = Verify::getErrors([
       'required@name|name' => $name,
       'required@email|email|registereduser@user' => $email,
-      "required@password|password@$passwordConfirmation|min@8@password|max@20@password" => $password,
+      "required@password|min@8@password|max@20@password|password@$passwordConfirmation" => $password,
       'required@password_confirmation' => $passwordConfirmation,
     ]);
 
@@ -69,7 +69,7 @@ class RegisterController extends Base
     $userData = [
       'name' => $name,
       'email' => $email,
-      'password' => password_hash($password, PASSWORD_DEFAULT),
+      'password_hash' => password_hash($password, PASSWORD_DEFAULT),
     ];
     if ($userRepository->store($userData)) {
       $registeredUser = $userRepository->findOne('email', $email);

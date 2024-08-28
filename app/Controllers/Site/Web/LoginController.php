@@ -63,11 +63,12 @@ class LoginController extends Base
     }
 
     Session::set('user', [
+      'id' => $user->id,
       'name' => $user->name,
       'email' => $user->email,
     ]);
 
-    Router::redirect('/user/dashboard');
+    Router::redirect('/');
 
     return $response;
   }

@@ -2,6 +2,7 @@
 
 namespace App\Core\Template;
 
+use App\Config\Session;
 use App\Core\Http\Router;
 use App\Config\Flash;
 use App\Config\FlashType;
@@ -73,5 +74,10 @@ trait Functions
     $this->errorMessages = !is_null($messages) ? $messages : $this->errorMessages;
 
     return $this->errorMessages[$key] ?? null;
+  }
+
+  public function userIsLoggedIn(): bool
+  {
+    return !is_null(Session::get('user'));
   }
 }

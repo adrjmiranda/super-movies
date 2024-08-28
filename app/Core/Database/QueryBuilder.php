@@ -235,7 +235,7 @@ class QueryBuilder
     $isDev = isDev();
 
     if ($isDev) {
-      throw new Exception($exception->getMessage(), $exception->getCode());
+      throw new Exception($exception->getMessage(), 500);
     }
   }
 }

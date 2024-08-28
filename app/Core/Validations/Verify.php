@@ -117,7 +117,7 @@ class Verify
 
   private static function email(string $email, array $params = []): array|false
   {
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
       return ['email' => 'Must be a valid email'];
     }
 
@@ -130,7 +130,11 @@ class Verify
     $number = (int) ($params[0] ?? '');
     $fieldName = $params[1] ?? '';
 
-    if (strlen($text) < $number) {
+    if (strlen($text) < $number && $rule === 'least') {
+      return [$fieldName => "The $fieldName must have a $rule of $number characters"];
+    }
+
+    if (strlen($text) > $number && $rule === 'maximum') {
       return [$fieldName => "The $fieldName must have a $rule of $number characters"];
     }
 

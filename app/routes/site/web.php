@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Site\Web\LogoutController;
 use App\Core\Http\Router;
 
 // Controllers
@@ -12,6 +13,8 @@ use App\Controllers\Site\Web\TermsController;
 
 // Middlewares
 use App\Middlewares\Site\Web\GeneratesCSRFTokenMiddleware;
+use App\Middlewares\Site\Web\RequireLoginMiddleware;
+use App\Middlewares\Site\Web\RequireLogoutMiddleware;
 use App\Middlewares\Site\Web\VerifyCSRFTokenMiddleware;
 
 $router->group('/', [], function (Router $router) {
@@ -20,7 +23,7 @@ $router->group('/', [], function (Router $router) {
   $router->get('/terms', TermsController::class . ':index')->as('terms_page');
   $router->get('/faq', FaqController::class . ':index')->as('faq_page');
 
-  $router->group('/', [], function (Router $router) {
+  $router->group('/', [RequireLogoutMiddleware::class], function (Router $router) {
     $router->group('/', [VerifyCSRFTokenMiddleware::class], function (Router $router) {
       $router->post('/login', LoginController::class . ':store')->as('user_login');
       $router->post('/register', RegisterController::class . ':store')->as('user_register');
@@ -30,5 +33,9 @@ $router->group('/', [], function (Router $router) {
       $router->get('/login', LoginController::class . ':index')->as('user_login_page');
       $router->get('/register', RegisterController::class . ':index')->as('user_register_page');
     });
+  });
+
+  $router->group('/', [RequireLoginMiddleware::class], function (Router $router) {
+    $router->get('/logout', LogoutController::class . ':index')->as('user_logout');
   });
 });

@@ -26,8 +26,13 @@
 					</li>
 
 					<li>
-						<a href="<?= $this->linkTo('user_login_page') ?>" class="btn_primary"><i
-								class="bi bi-person-circle"></i>Login</a>
+						<?php if ($this->userIsLoggedIn()): ?>
+							<a href="<?= $this->linkTo('user_logout') ?>" class="btn_primary">Logout<i
+									class="bi bi-box-arrow-right"></i></a>
+						<?php else: ?>
+							<a href="<?= $this->linkTo('user_login_page') ?>" class="btn_primary"><i
+									class="bi bi-person-circle"></i>Login</a>
+						<?php endif; ?>
 					</li>
 				</ul>
 
