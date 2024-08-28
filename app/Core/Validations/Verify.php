@@ -54,12 +54,12 @@ class Verify
     return $errors;
   }
 
-  private static function userexists(string $email, array $params = []): array|false
+  private static function __checkexistence(string $email, array $params = []): ?bool
   {
     $userType = $params[0] ?? '';
 
     if ($userType !== 'user' && $userType !== 'admin') {
-      return ['email' => 'User not found'];
+      self::handleException(new Exception('User Type Passed To Non-Existent Role', 500));
     }
 
     $repository = match ($userType) {
@@ -74,8 +74,22 @@ class Verify
       'admin' => AdminModel::class,
     };
 
-    if (!is_a($user, $model)) {
+    return is_a($user, $model);
+  }
+
+  private static function userexists(string $email, array $params = []): array|false
+  {
+    if (!self::__checkexistence($email, $params)) {
       return ['email' => 'User not found'];
+    }
+
+    return false;
+  }
+
+  private static function registereduser(string $email, array $params = []): array|false
+  {
+    if (self::__checkexistence($email, $params)) {
+      return ['email' => 'Already registered user'];
     }
 
     return false;
