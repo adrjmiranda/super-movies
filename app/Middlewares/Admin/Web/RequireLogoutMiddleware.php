@@ -5,13 +5,17 @@ namespace App\Middlewares\Admin\Web;
 use App\Config\Session;
 use App\Core\Http\Request;
 use App\Core\Http\Response;
+use App\Core\Http\Router;
 
-class GeneratesCSRFTokenMiddleware
+class RequireLogoutMiddleware
 {
   public function __invoke(Request $request, Response $response, callable $next)
   {
-    $csrf_token = bin2hex(random_bytes(48));
-    Session::set('csrf_token', $csrf_token);
+    $adminData = Session::get('admin');
+
+    if (!is_null($adminData)) {
+      Router::redirect('/admin/dashboard');
+    }
 
     return $next($request, $response);
   }

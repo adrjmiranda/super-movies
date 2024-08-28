@@ -1,137 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="shortcut icon"
-			href="../../../../public/favicon.ico"
-			type="image/x-icon"
-		/>
+<?php
+/**
+ * @var App\Core\Template\View $this
+ */
 
-		<title>SuperMovies</title>
+$this->extends('layouts.master', [
+	'page_title' => 'SuperMovies | Dashboard'
+])
+	?>
 
-		<!-- Styles -->
+<div class="dashboard">
+	<div class="dashboard_aside">
+		<div class="dashboard_profile_info">
+			<img src="<?= $this->escape($base_url) ?>/assets/img/admin.jpg" alt="..." />
 
-		<link
-			rel="stylesheet"
-			href="../../../../public/assets/css/admin/index.css"
-		/>
-
-		<!-- Scripts -->
-
-		<script
-			src="../../../../public/assets/js/admin/pass_visible_toggle.js"
-			defer
-		></script>
-		<script
-			src="../../../../public/assets/js/admin/dashboard_toggle_menu.js"
-			defer
-		></script>
-
-		<!-- Google Fonts -->
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-			rel="stylesheet"
-		/>
-
-		<!-- Bootstrap Icons -->
-
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-		/>
-	</head>
-	<body>
-		<div class="dashboard">
-			<div class="dashboard_aside">
-				<div class="dashboard_profile_info">
-					<img src="../../../src/img/admin.jpg" alt="..." />
-
-					<div class="dashboard_profile_info_text">
-						<span class="dashboard_profile_info_text_name">John Doe</span>
-						<span class="dashboard_profile_info_text_status">online</span>
-					</div>
-				</div>
-
-				<div class="dashboard_menu">
-					<button type="button" class="dashboard_close_menu">
-						<i class="bi bi-x-lg"></i>
-					</button>
-
-					<ul>
-						<li>
-							<a href="#">Dashboard</a>
-						</li>
-
-						<li>
-							<a href="#">Users</a>
-						</li>
-
-						<li>
-							<a href="#">Movies</a>
-						</li>
-
-						<li>
-							<a href="#">Contacts</a>
-						</li>
-					</ul>
-
-					<a href="#" class="dashboard_logout_btn">Logout</a>
-				</div>
-			</div>
-
-			<div class="dashboard_content">
-				<div class="dashboard_header">
-					<button type="button" class="dashboard_toggle_menu">
-						<i class="bi bi-list"></i>
-					</button>
-
-					<div class="dashboard_header_logo">
-						<a href="#" class="logo">
-							<i class="bi bi-film"></i>
-							<span>SuperMovies</span>
-						</a>
-					</div>
-
-					<div class="dashboard_header_notifications">
-						<ul>
-							<li>
-								<a href="#">
-									<i class="bi bi-bell"></i>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<i class="bi bi-question-circle"></i>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<i class="bi bi-postcard"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<a href="#" class="dashboard_header_user_info">
-						<img src="../../../src/img/admin.jpg" alt="..." />
-						<span>John Doe</span>
-					</a>
-				</div>
-
-				<div class="dashboard_title">
-					<h1>Dashboard</h1>
-				</div>
-
-				<div class="dashboard_inner">Content</div>
+			<div class="dashboard_profile_info_text">
+				<span class="dashboard_profile_info_text_name">John Doe</span>
+				<span class="dashboard_profile_info_text_status">online</span>
 			</div>
 		</div>
-	</body>
-</html>
+
+		<div class="dashboard_menu">
+			<button type="button" class="dashboard_close_menu">
+				<i class="bi bi-x-lg"></i>
+			</button>
+
+			<ul>
+				<li>
+					<a href="#">Dashboard</a>
+				</li>
+
+				<li>
+					<a href="#">Users</a>
+				</li>
+
+				<li>
+					<a href="#">Movies</a>
+				</li>
+
+				<li>
+					<a href="#">Contacts</a>
+				</li>
+			</ul>
+
+			<a href="<?= $this->linkTo('admin_logout') ?>" class="dashboard_logout_btn">Logout</a>
+		</div>
+	</div>
+
+	<div class="dashboard_content">
+		<div class="dashboard_header">
+			<button type="button" class="dashboard_toggle_menu">
+				<i class="bi bi-list"></i>
+			</button>
+
+			<div class="dashboard_header_logo">
+				<a href="#" class="logo">
+					<i class="bi bi-film"></i>
+					<span>SuperMovies</span>
+				</a>
+			</div>
+
+			<div class="dashboard_header_notifications">
+				<ul>
+					<li>
+						<a href="#">
+							<i class="bi bi-bell"></i>
+						</a>
+					</li>
+
+					<li>
+						<a href="#">
+							<i class="bi bi-question-circle"></i>
+						</a>
+					</li>
+
+					<li>
+						<a href="#">
+							<i class="bi bi-postcard"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<a href="#" class="dashboard_header_user_info">
+				<img src="<?= $this->escape($base_url) ?>/assets/img/admin.jpg" alt="..." />
+				<span>John Doe</span>
+			</a>
+		</div>
+
+		<div class="dashboard_title">
+			<h1>Dashboard</h1>
+		</div>
+
+		<div class="dashboard_inner">Content</div>
+	</div>
+</div>

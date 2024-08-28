@@ -241,4 +241,10 @@ class Router
 
     return [$controllerNamespace, $action, $params];
   }
+
+  public static function redirect(string $to): never
+  {
+    header("Location: $to");
+    exit;
+  }
 }

@@ -11,17 +11,18 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="<?= $this->escape($base_url) ?>/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="<?= $base_url ?>/favicon.ico" type="image/x-icon" />
 
   <title><?= $this->escape($page_title) ?></title>
 
   <!-- Styles -->
 
-  <link rel="stylesheet" href="<?= $this->escape($base_url) ?>/assets/css/admin/index.css" />
+  <link rel="stylesheet" href="<?= $base_url ?>/assets/css/admin/index.css" />
 
   <!-- Scripts -->
 
-  <script src="<?= $this->escape($base_url) ?>/assets/js/admin/pass_visible_toggle.js" defer></script>
+  <script src="<?= $base_url ?>/assets/js/admin/pass_visible_toggle.js" defer></script>
+  <script src="<?= $base_url ?>/assets/js/admin/dashboard_toggle_menu.js" defer></script>
 
   <!-- Google Fonts -->
 

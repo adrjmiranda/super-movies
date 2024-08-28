@@ -2,13 +2,14 @@
 
 namespace App\Controllers\Admin\Web;
 
+use App\Core\Controller\Base;
 use App\Config\Flash;
 use App\Config\FlashType;
-use App\Config\Session;
-use App\Core\Controller\Base;
+use App\Core\Http\Router;
 use App\Core\Http\Request;
 use App\Core\Http\Response;
 use App\Core\Validations\Verify;
+use App\Config\Session;
 use App\Repositories\AdminRepository;
 
 class LoginController extends Base
@@ -61,7 +62,12 @@ class LoginController extends Base
       return $this->index($request, $response, $params);
     }
 
-    // TODO: store in session and redirect to dashboard
+    Session::set('admin', [
+      'name' => $admin->name,
+      'email' => $admin->email,
+    ]);
+
+    Router::redirect('/admin/dashboard');
 
     return $response;
   }
