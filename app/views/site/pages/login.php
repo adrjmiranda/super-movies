@@ -13,7 +13,7 @@ $this->extends('layouts.auth', [
 
 	<div class="container">
 		<div class="auth_content">
-			<form action="<?= $this->linkTo('user_login') ?>" class="auth_form">
+			<form action="<?= $this->linkTo('user_login') ?>" method="post" class="auth_form">
 				<h1 class="auth_title">Login now</h1>
 
 				<p class="auth_form_error"><?= $this->getErrorMessage('csrf') ?></p>
