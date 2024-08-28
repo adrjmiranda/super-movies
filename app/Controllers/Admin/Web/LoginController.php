@@ -45,7 +45,7 @@ class LoginController extends Base
     $password = $request->getPostParam('password');
 
     $errors = Verify::getErrors([
-      'userexists@admin' => $email,
+      'required@email|userexists@admin' => $email,
       'required@password' => $password
     ]);
 
