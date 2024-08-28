@@ -247,4 +247,11 @@ class Router
     header("Location: $to");
     exit;
   }
+
+  public static function back(): never
+  {
+    $previous = $_SERVER['HTTP_REFERER'] ?? 'javascript:history.go(-1)';
+    self::redirect($previous);
+    exit;
+  }
 }

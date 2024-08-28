@@ -33,6 +33,14 @@
   transform: translate(0, 100%);
   animation: form_from_below 1s ease-in 0.3s 1 forwards;
 }
+.auth .auth_content .auth_form .auth_form_error {
+  color: #dc3545;
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.2rem;
+}
 .auth .auth_content .auth_form .auth_input_field {
   width: 100%;
   display: flex;
@@ -49,14 +57,6 @@
 .auth .auth_content .auth_form .auth_input_field input {
   width: 100%;
   border-radius: 0.25rem;
-}
-.auth .auth_content .auth_form .auth_input_field .auth_form_error {
-  color: #dc3545;
-  font-weight: 300;
-  font-size: 0.9rem;
-  text-align: center;
-  width: 100%;
-  margin-top: 0.2rem;
 }
 .auth .auth_content .auth_form button {
   width: 100%;

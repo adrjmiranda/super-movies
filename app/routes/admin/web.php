@@ -11,21 +11,23 @@ use App\Controllers\Admin\Web\DashboardController;
 use App\Middlewares\Admin\Web\GeneratesCSRFTokenMiddleware;
 use App\Middlewares\Admin\Web\RequireLoginMiddleware;
 use App\Middlewares\Admin\Web\RequireLogoutMiddleware;
+use App\Middlewares\Admin\Web\VerifyCSRFTokenMiddleware;
 
 $router->group('/admin', [], function (Router $router) {
   $router->group(
     '/',
-    [GeneratesCSRFTokenMiddleware::class, RequireLogoutMiddleware::class],
-    function (Router $router) {
-      $router->get('/login', LoginController::class . ':index')->as('admin_login_page');
-    }
-  );
-
-  $router->group(
-    '/',
     [RequireLogoutMiddleware::class],
     function (Router $router) {
-      $router->post('/login', LoginController::class . ':store')->as('admin_login');
+      $router->group('/', [VerifyCSRFTokenMiddleware::class], function (Router $router) {
+        $router->post('/login', LoginController::class . ':store')->as('admin_login');
+      });
+      $router->group(
+        '/',
+        [GeneratesCSRFTokenMiddleware::class],
+        function (Router $router) {
+          $router->get('/login', LoginController::class . ':index')->as('admin_login_page');
+        }
+      );
     }
   );
 
