@@ -29,9 +29,9 @@ class LoginController extends Base
       'password' => $password
     ];
 
-    $csrfToken = Session::get('csrf_token');
+    $csrfToken = Session::get('csrf_token_admin');
     $view = $this->render('pages.login', [
-      'csrf_token' => $csrfToken,
+      'csrf_token_admin' => $csrfToken,
       'post_params' => $postParams
     ]);
     $response->setBody($view);

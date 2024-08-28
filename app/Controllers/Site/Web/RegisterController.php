@@ -16,9 +16,9 @@ class RegisterController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
-    $csrfToken = Session::get('csrf_token');
+    $csrfToken = Session::get('csrf_token_user');
     $view = $this->render('pages.register', [
-      'csrf_token' => $csrfToken
+      'csrf_token_user' => $csrfToken
     ]);
     $response->setBody($view);
 

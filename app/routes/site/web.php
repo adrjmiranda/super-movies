@@ -12,6 +12,7 @@ use App\Controllers\Site\Web\TermsController;
 
 // Middlewares
 use App\Middlewares\Site\Web\GeneratesCSRFTokenMiddleware;
+use App\Middlewares\Site\Web\VerifyCSRFTokenMiddleware;
 
 $router->group('/', [], function (Router $router) {
   $router->get('/', HomeController::class . ':index')->as('home_page');
@@ -20,8 +21,10 @@ $router->group('/', [], function (Router $router) {
   $router->get('/faq', FaqController::class . ':index')->as('faq_page');
 
   $router->group('/', [], function (Router $router) {
-    $router->post('/login', LoginController::class . ':store')->as('user_login');
-    $router->post('/register', RegisterController::class . ':store')->as('user_register');
+    $router->group('/', [VerifyCSRFTokenMiddleware::class], function (Router $router) {
+      $router->post('/login', LoginController::class . ':store')->as('user_login');
+      $router->post('/register', RegisterController::class . ':store')->as('user_register');
+    });
 
     $router->group('/', [GeneratesCSRFTokenMiddleware::class], function (Router $router) {
       $router->get('/login', LoginController::class . ':index')->as('user_login_page');

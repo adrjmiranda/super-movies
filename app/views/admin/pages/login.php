@@ -21,7 +21,7 @@ $this->extends('layouts.auth', [
 
 				<p class="auth_form_error"><?= $this->getErrorMessage('csrf') ?></p>
 
-				<input type="hidden" name="csrf_token" value="<?= $this->escape($csrf_token) ?>">
+				<input type="hidden" name="csrf_token_admin" value="<?= $this->escape($csrf_token_admin) ?>">
 
 				<div class="auth_input_field">
 					<label for="email">E-mail</label>

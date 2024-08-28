@@ -141,6 +141,14 @@ ul {
   text-transform: capitalize;
   font-family: "Bebas Neue", sans-serif;
 }
+.auth .auth_content .auth_form .auth_form_error {
+  color: #dc3545;
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.2rem;
+}
 .auth .auth_content .auth_form .auth_input_field {
   width: 100%;
   display: flex;

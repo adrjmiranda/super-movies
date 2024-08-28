@@ -11,7 +11,7 @@ class GeneratesCSRFTokenMiddleware
   public function __invoke(Request $request, Response $response, callable $next)
   {
     $csrf_token = bin2hex(random_bytes(48));
-    Session::set('csrf_token', $csrf_token);
+    Session::set('csrf_token_user', $csrf_token);
 
     return $next($request, $response);
   }
