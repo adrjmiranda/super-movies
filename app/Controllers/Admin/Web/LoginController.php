@@ -67,7 +67,7 @@ class LoginController extends Base
       'email' => $admin->email,
     ]);
 
-    Router::redirect('/admin/dashboard');
+    Router::redirect('/admin/dashboard/home');
 
     return $response;
   }

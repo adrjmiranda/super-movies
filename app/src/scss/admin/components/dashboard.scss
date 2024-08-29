@@ -3,12 +3,15 @@
 
 .dashboard {
 	@include flex(row, center, flex-start);
+	position: relative;
 
 	.dashboard_aside {
 		min-height: 100vh;
 		background-color: $primary-color;
 		padding: 2rem 0;
-		position: absolute;
+		position: fixed !important;
+		top: 0 !important;
+		z-index: 1;
 		transform: translate(-100%, 0);
 		transition: all 0.3s ease-in-out;
 
@@ -52,7 +55,13 @@
 			padding: 2rem;
 
 			.dashboard_close_menu {
-				display: none;
+				@include flex;
+				position: absolute;
+				color: $white-color;
+				right: 2rem;
+				top: 2rem;
+				z-index: 4;
+				font-size: $fs-large;
 			}
 
 			ul {
@@ -192,7 +201,7 @@
 	@media screen and (max-width: 630px) {
 		.dashboard_aside {
 			width: 100vw;
-			position: absolute;
+			position: fixed !important;
 			z-index: 1;
 
 			.dashboard_menu {
@@ -213,10 +222,6 @@
 		}
 
 		.dashboard_content {
-			position: absolute;
-			left: 0;
-			top: 0;
-
 			.dashboard_header {
 				.dashboard_header_logo {
 					display: none;

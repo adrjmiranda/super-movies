@@ -18,7 +18,7 @@ dashboardToggleMenuBtn.addEventListener('click', () => {
 		if (state) {
 			if (screenWidth > 630) {
 				dashboardAside.style.transform = 'translate(-100%, 0)';
-				dashboardAside.style.position = 'absolute';
+				dashboardAside.style.position = 'fixed !important';
 			}
 		} else {
 			if (screenWidth > 630) {
@@ -26,7 +26,7 @@ dashboardToggleMenuBtn.addEventListener('click', () => {
 				dashboardAside.style.position = 'static';
 			} else {
 				dashboardAside.style.transform = 'translate(0, 0)';
-				dashboardAside.style.position = 'absolute';
+				dashboardAside.style.position = 'fixed !important';
 				dashboardAside.style.zIndex = '1';
 				dashboardAside.style.left = '0';
 				dashboardAside.style.top = '0';
