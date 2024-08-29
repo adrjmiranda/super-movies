@@ -1,5 +1,8 @@
 <?php
 
+use App\Controllers\Admin\Web\ContactsController;
+use App\Controllers\Admin\Web\MoviesController;
+use App\Controllers\Admin\Web\UsersController;
 use App\Core\Http\Router;
 
 // Controllers
@@ -33,6 +36,9 @@ $router->group('/admin', [], function (Router $router) {
 
   $router->group('/', [RequireLoginMiddleware::class], function (Router $router) {
     $router->get('/logout', LogoutController::class . ':index')->as('admin_logout');
-    $router->get('/dashboard', DashboardController::class . ':index')->as('admin_dashboard_page');
+    $router->get('/dashboard/home', DashboardController::class . ':index')->as('admin_dashboard_page');
+    $router->get('/dashboard/users', UsersController::class . ':index')->as('admin_users_page');
+    $router->get('/dashboard/movies', MoviesController::class . ':index')->as('admin_movies_page');
+    $router->get('/dashboard/contacts', ContactsController::class . ':index')->as('admin_contacts_page');
   });
 });

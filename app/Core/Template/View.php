@@ -7,9 +7,6 @@ class View
 {
   use Functions;
 
-  private string $templatePath;
-  private string $cachePath;
-
   private string $parentTemplateName;
   private array $parentTemplateData;
   private ?string $parentTemplateContent;

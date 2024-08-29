@@ -4,8 +4,8 @@
  */
 
 $this->extends('layouts.master', [
-	'page_title' => 'SuperMovies | Dashboard'
+  'page_title' => 'SuperMovies | Contacts'
 ]);
 ?>
 
-<div class="dashboard_inner">Dashboard</div>
+<div class="dashboard_inner">Contacts</div>

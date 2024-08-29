@@ -14,7 +14,7 @@ class RequireLogoutMiddleware
     $adminData = Session::get('admin');
 
     if (!is_null($adminData)) {
-      Router::redirect('/admin/dashboard');
+      Router::redirect('/admin/dashboard/home');
     }
 
     return $next($request, $response);

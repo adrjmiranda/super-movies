@@ -53,7 +53,7 @@ class RegisterController extends Base
     $errors = Verify::getErrors([
       'required@name|name' => $name,
       'required@email|email|registereduser@user' => $email,
-      "required@password|min@8@password|max@20@password|password@$passwordConfirmation" => $password,
+      "required@password|min@8@password|password@$passwordConfirmation|max@20@password" => $password,
       'required@password_confirmation' => $passwordConfirmation,
     ]);
 

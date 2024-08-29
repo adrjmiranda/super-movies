@@ -13,6 +13,8 @@ trait Functions
   private const TEMP_EXT = '.php';
   private const TEMP_NAME_PATTERN = '/^(?!.*[_.]{2,})(?!^[_.])(?!.*[_.]$)(?=.*\.)[a-z._]{3,}$/';
 
+  private string $templatePath;
+  private string $cachePath;
   private array $variables;
   private ?array $errorMessages = [];
 
@@ -55,9 +57,9 @@ trait Functions
     $this->checksTemplateName($partialName);
 
     if ($multiple) {
-      include SITE_VIEW_PATH . '/' . str_replace('.', '/', $partialName) . self::TEMP_EXT;
+      include $this->templatePath . '/' . str_replace('.', '/', $partialName) . self::TEMP_EXT;
     } else {
-      include_once SITE_VIEW_PATH . '/' . str_replace('.', '/', $partialName) . self::TEMP_EXT;
+      include_once $this->templatePath . '/' . str_replace('.', '/', $partialName) . self::TEMP_EXT;
     }
   }
 
