@@ -15,7 +15,9 @@ class DashboardController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
-    $view = $this->render('pages.home');
+    $view = $this->render('pages.home', [
+      'session_title' => 'Dashboard'
+    ]);
     $response->setBody($view);
 
     return $response;

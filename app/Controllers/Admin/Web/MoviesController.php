@@ -15,7 +15,9 @@ class MoviesController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
-    $view = $this->render('pages.movies', []);
+    $view = $this->render('pages.movies', [
+      'session_title' => 'Movies'
+    ]);
     $response->setBody($view);
 
     return $response;

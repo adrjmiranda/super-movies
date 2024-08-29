@@ -12,7 +12,7 @@ $this->extends('layouts.master', [
 ?>
 
 <div class="dashboard_inner">
-  <table id="movies_datatable" class="display" style="width:100%">
+  <table id="movies_datatable" class="display datatable" style="width:100%">
     <thead>
       <tr>
         <th>Name</th>

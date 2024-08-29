@@ -11,7 +11,7 @@
 		padding: 2rem 0;
 		position: fixed !important;
 		top: 0 !important;
-		z-index: 1;
+		z-index: 10;
 		transform: translate(-100%, 0);
 		transition: all 0.3s ease-in-out;
 
@@ -185,6 +185,60 @@
 
 		.dashboard_inner {
 			padding: 1rem;
+			.dt-container {
+				.dt-length {
+					label {
+						color: $gray-color;
+						font-weight: 500;
+						margin-left: 0.5rem;
+					}
+
+					.dt-input {
+						color: $white-color;
+					}
+				}
+
+				.dt-search {
+					label {
+						color: $gray-color;
+						font-weight: bold;
+						margin-right: 0.5rem;
+					}
+
+					.dt-input {
+						color: $white-color;
+						padding: 0.25rem 0.5rem;
+
+						&::placeholder {
+							color: $gray-color;
+							font-weight: 300;
+						}
+					}
+				}
+
+				.dt-info {
+					color: $gray-color;
+					font-weight: bold;
+				}
+
+				.dt-paging {
+					nav {
+						.dt-paging-button {
+							color: $white-color !important;
+							border-radius: 50%;
+							background-color: $tertiary-color;
+							margin: 0 0.15rem;
+
+							&.current,
+							&:hover {
+								background-color: $secondary-color !important;
+								font-weight: bold !important;
+								transform: scale(1.1) !important;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -205,16 +259,6 @@
 			z-index: 1;
 
 			.dashboard_menu {
-				.dashboard_close_menu {
-					@include flex;
-					position: absolute;
-					color: $white-color;
-					right: 2rem;
-					top: 2rem;
-					z-index: 4;
-					font-size: $fs-large;
-				}
-
 				.dashboard_logout_btn {
 					width: calc(100% - 4rem);
 				}

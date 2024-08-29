@@ -15,7 +15,9 @@ class UsersController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
-    $view = $this->render('pages.users', []);
+    $view = $this->render('pages.users', [
+      'session_title' => 'Users'
+    ]);
     $response->setBody($view);
 
     return $response;

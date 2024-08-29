@@ -14,7 +14,7 @@
   padding: 2rem 0;
   position: fixed !important;
   top: 0 !important;
-  z-index: 1;
+  z-index: 10;
   transform: translate(-100%, 0);
   transition: all 0.3s ease-in-out;
 }
@@ -184,6 +184,42 @@
 .dashboard .dashboard_content .dashboard_inner {
   padding: 1rem;
 }
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-length label {
+  color: #536675;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-length .dt-input {
+  color: #f8faf8;
+}
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-search label {
+  color: #536675;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-search .dt-input {
+  color: #f8faf8;
+  padding: 0.25rem 0.5rem;
+}
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-search .dt-input::placeholder {
+  color: #536675;
+  font-weight: 300;
+}
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-info {
+  color: #536675;
+  font-weight: bold;
+}
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-paging nav .dt-paging-button {
+  color: #f8faf8 !important;
+  border-radius: 50%;
+  background-color: #223345;
+  margin: 0 0.15rem;
+}
+.dashboard .dashboard_content .dashboard_inner .dt-container .dt-paging nav .dt-paging-button.current, .dashboard .dashboard_content .dashboard_inner .dt-container .dt-paging nav .dt-paging-button:hover {
+  background-color: #1e2a36 !important;
+  font-weight: bold !important;
+  transform: scale(1.1) !important;
+}
 @media screen and (max-width: 860px) {
   .dashboard .dashboard_content .dashboard_header .dashboard_header_logo {
     display: none;
@@ -194,18 +230,6 @@
     width: 100vw;
     position: fixed !important;
     z-index: 1;
-  }
-  .dashboard .dashboard_aside .dashboard_menu .dashboard_close_menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    color: #f8faf8;
-    right: 2rem;
-    top: 2rem;
-    z-index: 4;
-    font-size: 1.25rem;
   }
   .dashboard .dashboard_aside .dashboard_menu .dashboard_logout_btn {
     width: calc(100% - 4rem);

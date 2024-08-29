@@ -92,10 +92,9 @@
         </a>
       </div>
 
-      <div class="dashboard_title">
-        <h1>Dashboard</h1>
-      </div>
-
+      <?php $this->includeOne('partials.dashboard_title', [
+        'session_title' => $session_title
+      ]); ?>
 
       <?php $this->load(); ?>
     </div>

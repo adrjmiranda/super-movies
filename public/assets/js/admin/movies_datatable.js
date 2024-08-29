@@ -26,7 +26,7 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var datatables_net_dt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables.net-dt */ \"./node_modules/datatables.net-dt/js/dataTables.dataTables.mjs\");\n\nvar table = new datatables_net_dt__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('#movies_datatable', {\n// config options...\n});\n\n\n//# sourceURL=webpack://super-movies/./app/src/js/admin/movies_datatable.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var datatables_net_dt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables.net-dt */ \"./node_modules/datatables.net-dt/js/dataTables.dataTables.mjs\");\n\nvar table = new datatables_net_dt__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('#movies_datatable', {\n    responsive: true,\n    pageLength: 10,\n});\n\n\n//# sourceURL=webpack://super-movies/./app/src/js/admin/movies_datatable.ts?");
 
 /***/ }),
 

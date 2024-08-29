@@ -15,7 +15,9 @@ class ContactsController extends Base
 
   public function index(Request $request, Response $response, array $params): Response
   {
-    $view = $this->render('pages.contacts', []);
+    $view = $this->render('pages.contacts', [
+      'session_title' => 'Contacts'
+    ]);
     $response->setBody($view);
 
     return $response;
