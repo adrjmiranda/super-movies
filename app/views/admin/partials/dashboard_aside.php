@@ -33,6 +33,10 @@
       </li>
 
       <li>
+        <a href="<?= $this->linkTo('admin_movie_creation_page') ?>">New Movie</a>
+      </li>
+
+      <li>
         <a href="<?= $this->linkTo('admin_contacts_page') ?>">Contacts</a>
       </li>
     </ul>

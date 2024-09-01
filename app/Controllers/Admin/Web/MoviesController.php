@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin\Web;
 
+use App\Config\Session;
 use App\Core\Controller\Base;
 use App\Core\Http\Request;
 use App\Core\Http\Response;
@@ -20,6 +21,23 @@ class MoviesController extends Base
     ]);
     $response->setBody($view);
 
+    return $response;
+  }
+
+  public function create(Request $request, Response $response, array $params): Response
+  {
+    $csrfToken = Session::get('csrf_token_admin');
+    $view = $this->render('pages.create_movie', [
+      'csrf_token_admin' => $csrfToken,
+      'session_title' => 'Create Movie'
+    ]);
+    $response->setBody($view);
+
+    return $response;
+  }
+
+  public function store(Request $request, Response $response, array $params): Response
+  {
     return $response;
   }
 }
