@@ -3,8 +3,11 @@
 namespace App\Core\Validations;
 
 use App\Models\AdminModel;
+use App\Models\MovieModel;
 use App\Models\UserModel;
 use App\Repositories\AdminRepository;
+use App\Repositories\CategoryRepository;
+use App\Repositories\MovieRespository;
 use App\Repositories\UserRepository;
 use Exception;
 
@@ -110,6 +113,88 @@ class Verify
     $pattern = '/^[\p{L} ]+$/u';
     if (!preg_match($pattern, $name)) {
       return ['name' => 'Must be a valid name'];
+    }
+
+    return false;
+  }
+
+  private static function title(string $title, array $params = []): array|false
+  {
+    $pattern = '/^.{1,255}$/';
+    if (!preg_match($pattern, $title)) {
+      return ['title' => 'The title must have a maximum of 255 characters'];
+    }
+
+    return false;
+  }
+
+  private static function slug(string $slug, array $params = []): array|false
+  {
+    $moviesRespository = new MovieRespository;
+    $movie = $moviesRespository->findOne('slug', $slug);
+
+    $pattern = '/^[a-z-]+$/';
+
+    if (!preg_match($pattern, $slug)) {
+      return ['slug' => 'The slug must contain only lowercase letters without accents, and hyphens'];
+    }
+
+    if ($movie instanceof MovieModel) {
+      return ['slug' => 'The slug must be unique'];
+    }
+
+    return false;
+  }
+
+  private static function description(string $description, array $params = []): array|false
+  {
+    $pattern = '/^.{1,65535}$/';
+
+    if (!preg_match($pattern, $description)) {
+      return ['description' => 'The description must have a maximum of 65535 characters'];
+    }
+
+    return false;
+  }
+
+  private static function releasedate(string $date, array $params = []): array|false
+  {
+    $pattern = '/^\d{4}-\d{2}-\d{2}$/';
+
+    if (!preg_match($pattern, $date)) {
+      return ['release_date' => 'Invalid date'];
+    }
+
+    [$year, $month, $day] = explode('-', $date);
+    $year = (int) $year;
+    $month = (int) $month;
+    $day = (int) $day;
+
+    if (!februaryDayIsCorrect($day, $month, $year) || !dayAndMonthAreValid($day, $month) || $day < 0 || $month < 0 || $year < 0) {
+      return ['release_date' => 'Invalid date'];
+    }
+
+    return false;
+  }
+
+  private static function duration(int $duration, array $params = []): array|false
+  {
+    if ($duration < 1) {
+      return ['duration' => 'Invalid movie duration'];
+    }
+
+    return false;
+  }
+
+  private static function categoryid(array $listOfCategoryIds, array $params = []): array|false
+  {
+    $listOfCategoryIds = array_unique($listOfCategoryIds);
+    $categoriesRepository = new CategoryRepository;
+
+    $countOfIdsInTheRange = $categoriesRepository->getNumberOfIdsInATange($listOfCategoryIds);
+
+    if ($countOfIdsInTheRange !== count($listOfCategoryIds)) {
+      return ['categories' => 'Invalid submitted categories'];
     }
 
     return false;

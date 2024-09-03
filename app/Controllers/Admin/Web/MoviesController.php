@@ -43,6 +43,10 @@ class MoviesController extends Base
 
   public function store(Request $request, Response $response, array $params): Response
   {
+    dump($request->getPostParams());
+    dump($request->getFiles());
+    exit;
+
     return $response;
   }
 }

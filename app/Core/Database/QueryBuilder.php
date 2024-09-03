@@ -8,7 +8,7 @@ use PDOException;
 
 class QueryBuilder
 {
-  private PDO $pdo;
+  protected PDO $pdo;
   private string $table;
   private string $fetchClass;
   private string $fields = '*';

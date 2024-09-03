@@ -13,4 +13,14 @@ class CategoryRepository extends Model
   {
     parent::__construct(self::TABLE, CategoryModel::class);
   }
+
+  public function getNumberOfIdsInATange(array $ids): int
+  {
+    $items = implode(',', $ids);
+
+    $query = 'SELECT COUNT(*) as count FROM ' . self::TABLE . ' WHERE id IN ' . $items;
+    $result = $this->pdo->query($query)->fetch();
+
+    return $result['count'];
+  }
 }
