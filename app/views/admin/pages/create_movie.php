@@ -5,7 +5,10 @@
  */
 
 $this->extends('layouts.master', [
-  'page_title' => 'SuperMovies | Create Movie'
+  'page_title' => 'SuperMovies | Create Movie',
+  'scripts' => [
+    'video_preview'
+  ]
 ]);
 ?>
 
@@ -15,14 +18,16 @@ $this->extends('layouts.master', [
 
       <input type="hidden" name="csrf_token_admin" value="<?= $this->escape($csrf_token_admin) ?>">
 
-      <div class="create_movie_preview"></div>
+      <div class="create_movie_preview">
+        <video id="video_preview" controls></video>
+      </div>
 
       <div class="create_movie_input_fields">
         <p class="auth_form_error"><?= $this->getErrorMessage('csrf') ?></p>
 
-        <div class="create_movie_input_field">
+        <div class="create_movie_input_file_field">
           <label>Movie:</label>
-          <input type="file" name="movie" accept="video/*">
+          <input type="file" name="movie" id="movie_file_input" accept="video/*">
         </div>
 
         <div class="create_movie_input_field_row">
@@ -60,11 +65,203 @@ $this->extends('layouts.master', [
             <label>
               <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
             </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
+            </label>
           </div>
         </div>
       </div>
 
-      <button type="submit" class="btn-prmiary">Store</button>
+      <button type="submit" class="btn_secondary">Store</button>
     </form>
   </div>
 </div>

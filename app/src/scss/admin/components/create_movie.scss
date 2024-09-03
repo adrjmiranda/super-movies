@@ -1,0 +1,185 @@
+@import '../../mixins';
+@import '../../variables';
+
+.create_movie {
+	.create_movie_form {
+		width: 100%;
+		@include flex(column);
+		gap: 1rem;
+
+		.create_movie_preview {
+			width: 100%;
+			border-radius: 0.25rem;
+			overflow: hidden;
+
+			video {
+				display: none;
+				width: 100%;
+			}
+		}
+
+		.create_movie_input_fields {
+			@include flex(column);
+			flex: 1;
+			width: 100%;
+			gap: 1rem;
+
+			.create_movie_input_file_field {
+				@include flex(column, flex-start);
+				gap: 0.5rem;
+				flex: 1;
+				width: 100%;
+
+				label {
+					color: $gray-color;
+					font-weight: bold;
+					font-size: 0.95rem;
+				}
+
+				input {
+					width: 100%;
+					border-radius: 0.25rem;
+				}
+			}
+
+			.create_movie_input_field_row {
+				width: 100%;
+				@include flex(row);
+				gap: 1rem;
+
+				.create_movie_input_field {
+					@include flex(column, flex-start);
+					width: 100%;
+					gap: 0.5rem;
+
+					label {
+						font-size: 0.95rem;
+						font-weight: bold;
+						color: $gray-color;
+					}
+
+					input {
+						border-radius: 0.25rem;
+						width: 100%;
+					}
+				}
+			}
+
+			.create_movie_input_field {
+				@include flex(column, flex-start);
+				width: 100%;
+				gap: 0.5rem;
+
+				label {
+					color: $gray-color;
+					font-weight: bold;
+					font-size: 0.95rem;
+				}
+
+				textarea {
+					width: 100%;
+					border-radius: 0.25rem;
+					height: 150px;
+				}
+			}
+
+			.create_movie_input_field_checkbox {
+				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(6, auto);
+				row-gap: 1rem;
+				column-gap: 1rem;
+				justify-content: space-between;
+
+				label {
+					@include flex(row, center, flex-start);
+					gap: 0.5rem;
+					font-size: 1rem;
+
+					input {
+						cursor: pointer;
+					}
+
+					span {
+						cursor: pointer;
+						color: $white-color;
+						font-weight: 500;
+						text-transform: capitalize;
+					}
+				}
+			}
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 1400px) {
+		.create_movie_form {
+			.create_movie_input_fields {
+				.create_movie_input_field_checkbox {
+					grid-template-columns: repeat(5, auto);
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1000px) {
+		.create_movie_form {
+			.create_movie_input_fields {
+				.create_movie_input_field_checkbox {
+					grid-template-columns: repeat(4, auto);
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		.create_movie_form {
+			.create_movie_input_fields {
+				.create_movie_input_field_checkbox {
+					grid-template-columns: repeat(3, auto);
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 680px) {
+		.create_movie_form {
+			.create_movie_input_fields {
+				.create_movie_input_field_row {
+					@include flex(column);
+				}
+
+				.create_movie_input_field_checkbox {
+					grid-template-columns: repeat(3, auto);
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 576px) {
+		.create_movie_form {
+			.create_movie_input_fields {
+				.create_movie_input_field_checkbox {
+					grid-template-columns: repeat(2, auto);
+
+					label {
+						gap: 1rem;
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 370px) {
+		.create_movie_form {
+			.create_movie_input_fields {
+				.create_movie_input_field_checkbox {
+					grid-template-columns: repeat(1, auto);
+				}
+			}
+		}
+	}
+}
