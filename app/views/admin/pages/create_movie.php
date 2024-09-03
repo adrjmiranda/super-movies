@@ -14,7 +14,8 @@ $this->extends('layouts.master', [
 
 <div class="dashboard_inner">
   <div class="create_movie">
-    <form action="#" method="post" enctype="multipart/form-data" class="create_movie_form">
+    <form action="<?= $this->linkTo('admin_movie_creation_store') ?>" method="post" enctype="multipart/form-data"
+      class="create_movie_form">
 
       <input type="hidden" name="csrf_token_admin" value="<?= $this->escape($csrf_token_admin) ?>">
 
@@ -62,201 +63,14 @@ $this->extends('layouts.master', [
         <div class="create_movie_input_field">
           <label>Categories:</label>
           <div class="create_movie_input_field_checkbox">
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
-
-            <label>
-              <input type="checkbox" name="categories[]" value="..."><span>Categorie name</span>
-            </label>
+            <?php if (count($categories) > 0): ?>
+              <?php foreach ($categories as $category): ?>
+                <label>
+                  <input type="checkbox" name="categories[]"
+                    value="<?= $this->escape($category->id) ?>"><span><?= $this->escape($category->name) ?></span>
+                </label>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>

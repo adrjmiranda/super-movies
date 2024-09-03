@@ -16,6 +16,13 @@ class Model extends QueryBuilder
     return isset($result[0]) ? $result[0] : false;
   }
 
+  public function all(): array
+  {
+    $result = $this->select()->execute();
+
+    return $result;
+  }
+
   public function store(array $data): bool
   {
     $result = $this->insert($data)->execute();
