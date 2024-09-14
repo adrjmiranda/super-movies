@@ -67,7 +67,7 @@ class Request
     return $this->queryParams;
   }
 
-  public function getPostParam(string $key): string
+  public function getPostParam(string $key): string|array
   {
     return $this->getPostParams()[$key] ?? '';
   }
@@ -85,6 +85,11 @@ class Request
   public function getFiles(): array
   {
     return $this->files;
+  }
+
+  public function getFile(string $key): mixed
+  {
+    return $this->getFiles()[$key] ?? null;
   }
 
   public function getServerParams(): array

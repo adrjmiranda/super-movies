@@ -118,11 +118,43 @@ class Verify
     return false;
   }
 
+  private static function video(array $file, array $params = []): array|false
+  {
+    // error key
+    $key = 'movie';
+
+    $permittedTypes = ['mp4'];
+    $maxSize = 2 * 1024 * 1024 * 1024; // in GB
+
+    // valid exists
+    if (is_null($file)) {
+      return [$key => 'Movie file is required'];
+    }
+
+    // valid errors
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+      return [$key => 'Upload failed or file does not exist'];
+    }
+
+    // valid type
+    if (strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)) !== 'mp4') {
+      $message = 'Only the following types are allowed: ' . implode(', ', $permittedTypes);
+      return [$key => $message];
+    }
+
+    // valid size
+    if ($file['size'] > $maxSize) {
+      return [$key => "The file must be a maximum of {$maxSize} GB"];
+    }
+
+    return false;
+  }
+
   private static function title(string $title, array $params = []): array|false
   {
     $pattern = '/^.{1,255}$/';
     if (!preg_match($pattern, $title)) {
-      return ['title' => 'The title must have a maximum of 255 characters'];
+      return ['title' => 'The title must be 1 to 255 characters long'];
     }
 
     return false;
@@ -151,7 +183,7 @@ class Verify
     $pattern = '/^.{1,65535}$/';
 
     if (!preg_match($pattern, $description)) {
-      return ['description' => 'The description must have a maximum of 65535 characters'];
+      return ['description' => 'The description must be 1 to 65535 characters long'];
     }
 
     return false;
@@ -188,6 +220,10 @@ class Verify
 
   private static function categoryid(array $listOfCategoryIds, array $params = []): array|false
   {
+    if (empty($listOfCategoryIds)) {
+      return ['categories' => 'It is mandatory to select at least one category'];
+    }
+
     $listOfCategoryIds = array_unique($listOfCategoryIds);
     $categoriesRepository = new CategoryRepository;
 

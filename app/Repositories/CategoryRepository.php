@@ -18,9 +18,10 @@ class CategoryRepository extends Model
   {
     $items = implode(',', $ids);
 
-    $query = 'SELECT COUNT(*) as count FROM ' . self::TABLE . ' WHERE id IN ' . $items;
+    $query = 'SELECT COUNT(*) as count FROM ' . self::TABLE . ' WHERE id IN ' . '(' . $items . ')';
+
     $result = $this->pdo->query($query)->fetch();
 
-    return $result['count'];
+    return $result->count;
   }
 }

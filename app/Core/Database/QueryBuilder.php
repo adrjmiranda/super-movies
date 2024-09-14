@@ -25,11 +25,43 @@ class QueryBuilder
   private array $updateBindings = [];
   private string $queryType;
 
+  private bool $isTransaction = false;
+
   public function __construct(string $table, string $fetchClass)
   {
     $this->pdo = Connection::get();
     $this->table = $table;
     $this->fetchClass = $fetchClass;
+  }
+
+  public function beginTransaction(): self
+  {
+    if (!$this->isTransaction) {
+      $this->pdo->beginTransaction();
+      $this->isTransaction = true;
+    }
+
+    return $this;
+  }
+
+  public function commit(): self
+  {
+    if ($this->isTransaction) {
+      $this->pdo->commit();
+      $this->isTransaction = false;
+    }
+
+    return $this;
+  }
+
+  public function rollback(): self
+  {
+    if ($this->isTransaction) {
+      $this->pdo->rollBack();
+      $this->isTransaction = false;
+    }
+
+    return $this;
   }
 
   public function select(string $fields = '*'): self
@@ -191,6 +223,10 @@ class QueryBuilder
 
       return $result;
     } catch (PDOException $pDOException) {
+      if ($this->isTransaction) {
+        $this->rollback();
+      }
+
       $this->handleException($pDOException);
     }
   }
@@ -228,6 +264,8 @@ class QueryBuilder
     $this->conditionBindings = [];
     $this->updateBindings = [];
     $this->queryType = '';
+
+    $this->isTransaction = false;
   }
 
   private function handleException(PDOException|Exception $exception): void
