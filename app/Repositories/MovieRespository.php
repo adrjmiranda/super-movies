@@ -21,6 +21,9 @@ class MovieRespository extends Model
       $this->beginTransaction();
 
       // TODO: insert movie
+      $movieData = $data;
+      unset($movieData['categories']);
+      $result = $this->insert($movieData)->execute();
 
       // get categories id
       $categoriesId = $data['categories'];
